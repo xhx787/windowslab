@@ -27,8 +27,8 @@
         <Label x:Name="label1" Grid.Row="0" Grid.Column="0" Content="输入汉字"   HorizontalAlignment="Stretch" VerticalAlignment="Center" HorizontalContentAlignment="Left" Margin="0,0,0,0"  />
 
         <Button x:Name="btn1" Grid.Row="0" Grid.Column="2" Content="获得拼音"    HorizontalAlignment="Center"  VerticalAlignment="Center" Width="100" Height="30" Click="btn1_Click_1" />
-        <Button x:Name="btn2" Grid.Row="0" Grid.Column="3"  Content="简体->繁体" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="100" Height="30" Click="btn2_Click_1"/>
-        <Button x:Name="btn3" Grid.Row="0" Grid.Column="4"  Content="繁体->简体" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="100" Height="30" Click="btn3_Click_1" />
+        <Button x:Name="btn2" Grid.Row="0" Grid.Column="3"  Content="繁体->简体" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="100" Height="30" Click="btn2_Click_1"/>
+        <Button x:Name="btn3" Grid.Row="0" Grid.Column="4"  Content="简体->繁体" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="100" Height="30" Click="btn3_Click_1" />
         <Button x:Name="btn4" Grid.Row="0" Grid.Column="5"  Content="文本->发音" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="100" Height="30" Click="btn4_Click_1" />
 
         <TextBox x:Name="textBox"  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" Height="30" Margin="10,6,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top"/>
