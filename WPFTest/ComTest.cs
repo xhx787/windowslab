@@ -21,6 +21,7 @@ namespace WPFTest
                 Guid guid = new Guid(_guid);
                 Type transactionType = Type.GetTypeFromCLSID(guid);
                 object transaction = Activator.CreateInstance(transactionType);
+                Console.WriteLine(transaction);
                 iTransaction = transaction as ITransaction;
                 iTransaction.Connect(connectionStr);
             }

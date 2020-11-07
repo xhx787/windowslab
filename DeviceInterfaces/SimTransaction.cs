@@ -17,7 +17,8 @@ namespace DeviceInterfaces
 
     // COM 组件的创建与调用过程:
     //  1. 声明 COM 组件, 即定义接口
-    [Guid("9F6E38B0-2657-443D-BCC1-1C3246221828")]
+    //[Guid("9F6E38B0-2657-443D-BCC1-1C3246221828")]
+    [Guid("944CA448-AE53-47C8-84ED-80DBD799E3BD")]
     [ComVisible(true)]
     [ClassInterface(ClassInterfaceType.None)]
     [Description("模拟事务记录")]

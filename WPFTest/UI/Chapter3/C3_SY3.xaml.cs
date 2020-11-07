@@ -19,6 +19,7 @@ using dll_csharp;
 using MsExcel = Microsoft.Office.Interop.Excel;
 using System.IO;
 using System.Diagnostics;
+using System.Threading;
 
 namespace WPFTest.UI.Chapter3
 {
@@ -150,19 +151,23 @@ namespace WPFTest.UI.Chapter3
                 showComment("正在结束excel进程");
                 //关闭 excel 进程
                 Process[] AllProces = Process.GetProcesses();
+                int flag = 0;
                 for (int j = 0; j < AllProces.Length; j++)
                 {
                     string theProcName = AllProces[j].ProcessName;
+                    //Console.WriteLine(theProcName);
                     if (String.Compare(theProcName, "EXCEL") == 0)
                     {
                         if (AllProces[j].Responding && !AllProces[j].HasExited)
                         {
                             AllProces[j].Kill();
+                            AllProces[j].WaitForExit();
+                            flag = j;
                         }
                     }
                 }
                 //Close excel Process.
-
+                Console.WriteLine(AllProces[1].HasExited);
                 OpenExcel(dest_file_name);
             }
         }
@@ -173,6 +178,7 @@ namespace WPFTest.UI.Chapter3
             //string tempPath = System.Environment.GetEnvironmentVariable("TEMP");
             //var filepath = Path.Combine(tempPath, WordPath);
             string excelExePath = "";
+            //Thread.Sleep(1000);
             Process[] wordProcesses = Process.GetProcessesByName("EXCEL");
             foreach (Process process in wordProcesses)
             {

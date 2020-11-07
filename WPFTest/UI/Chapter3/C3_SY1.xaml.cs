@@ -33,7 +33,7 @@ namespace WPFTest.UI.Chapter3
         {
             string strText1 = textBox1.Text.Trim();
             string strText2 = textBox2.Text.Trim();
-            string ret = ComTest.add("9F6E38B0-2657-443D-BCC1-1C3246221828", "Simulation Transaction", int.Parse(strText1), int.Parse(strText2));
+            string ret = ComTest.add("944CA448-AE53-47C8-84ED-80DBD799E3BD", "Simulation Transaction", int.Parse(strText1), int.Parse(strText2));
             textBox3.Text = String.Concat(ret);
         }
 
