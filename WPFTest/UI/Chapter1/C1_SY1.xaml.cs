@@ -18,82 +18,82 @@ using DotNetSpeech;
 
 namespace WPFTest.UI.Chapter1
 {
-    /// <summary>
-    /// C1_SY1.xaml 的交互逻辑
-    /// </summary>
-    public partial class C1_SY1 : ChildPage
-    {
-        public C1_SY1()
-        {
-            InitializeComponent();
-        }
+	/// <summary>
+	/// C1_SY1.xaml 的交互逻辑
+	/// </summary>
+	public partial class C1_SY1 : ChildPage
+	{
+		readonly SpVoice voice = new SpVoice();
+
+		public C1_SY1()
+		{
+			InitializeComponent();
+		}
 
 
-        private Boolean checkInput()
-        {
-            if (textBox.Text.Trim().Length == 0)
-            {
-                MessageBox.Show("输入不能为空");
-                return false;
-            }
-            return true;
-        }
+		private bool CheckInput()
+		{
+			if (textBox.Text.Trim().Length == 0)
+			{
+				MessageBox.Show("输入不能为空");
+				return false;
+			}
+			return true;
+		}
 
-        private void btn1_Click_1(object sender, RoutedEventArgs e)
-        {
-            if (!checkInput())
-                return;
+		private void GetPinYinBtn_Click(object sender, RoutedEventArgs e)
+		{
+			if (!CheckInput())
+				return;
 
-            listBox.Items.Clear();
+			listBox.Items.Clear();
 
-            char one_char = textBox.Text.Trim().ToCharArray()[0];
-            int ch_int = (int)one_char;
-            string str_char_int = string.Format("{0}", ch_int);
-            if (ch_int > 127)
-            {
-                ChineseChar chineseChar = new ChineseChar(one_char);
-                System.Collections.ObjectModel.ReadOnlyCollection<string> pinyin = chineseChar.Pinyins;
-                string pin_str = "";
-                foreach (string pin in pinyin)
-                {
-                    listBox.Items.Add(pin);
-                    pin_str += pin + "\r\n";
-                }
-            }
-        }
+			char one_char = textBox.Text.Trim().ToCharArray()[0];
+			int ch_int = (int)one_char;
+			if (ch_int > 127)
+			{
+				ChineseChar chineseChar = new ChineseChar(one_char);
+				System.Collections.ObjectModel.ReadOnlyCollection<string> pinyins = chineseChar.Pinyins;
+				//string pin_str = "";
+				foreach (string pinyin in pinyins)
+				{
+					if (!string.IsNullOrEmpty(pinyin)) listBox.Items.Add(pinyin);
+					//pin_str += pin + "\r\n";
+				}
+			}
+		}
 
-        private void btn2_Click_1(object sender, RoutedEventArgs e)
-        {
-            if (!checkInput())
-                return;
+		private void TransferTraditionalBtn_Click(object sender, RoutedEventArgs e)
+		{
+			if (!CheckInput())
+				return;
 
-            listBox.Items.Clear();
+			listBox.Items.Clear();
 
-            String t = ChineseConverter.Convert(textBox.Text.Trim(),
-            ChineseConversionDirection.TraditionalToSimplified);
-            listBox.Items.Add(t);
-        }
+			string t = ChineseConverter.Convert(textBox.Text.Trim(),
+			ChineseConversionDirection.TraditionalToSimplified);
+			listBox.Items.Add(t);
+		}
 
-        private void btn3_Click_1(object sender, RoutedEventArgs e)
-        {
-            if (!checkInput())
-                return;
+		private void TransterSimplifiedBtn_Click(object sender, RoutedEventArgs e)
+		{
+			if (!CheckInput())
+				return;
 
-            listBox.Items.Clear();
+			listBox.Items.Clear();
 
-            String t = ChineseConverter.Convert(textBox.Text.Trim(),
-            ChineseConversionDirection.SimplifiedToTraditional);
-            listBox.Items.Add(t);
-        }
+			string t = ChineseConverter.Convert(textBox.Text.Trim(),
+			ChineseConversionDirection.SimplifiedToTraditional);
+			listBox.Items.Add(t);
+		}
 
-        private void btn4_Click_1(object sender, RoutedEventArgs e)
-        {
-            if (!checkInput())
-                return;
+		private void GetSoundBtn_Click(object sender, RoutedEventArgs e)
+		{
+			if (!CheckInput())
+				return;
 
-            SpeechVoiceSpeakFlags spFlags = SpeechVoiceSpeakFlags.SVSFlagsAsync;
-            SpVoice voice = new SpVoice();
-            voice.Speak(textBox.Text.Trim(), spFlags);
-        }
-    }
+			SpeechVoiceSpeakFlags spFlags = SpeechVoiceSpeakFlags.SVSFlagsAsync;
+			voice.Speak(textBox.Text.Trim(), spFlags);
+		}
+	}
 }
