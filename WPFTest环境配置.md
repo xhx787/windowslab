@@ -40,5 +40,32 @@ xcopy "$(SolutionDir)WPFTest\UI\Image\*.* " "$(TargetDir)Image\"  /y
 xcopy "$(SolutionDir)WPFTest\Files\*.*"  "$(TargetDir)Files\"  /y
 ```
 
+## 3 补充：在未安装office的情况下进行配置  
 
+①未安装office2019。  
 
+如果我们的电脑未安装office2019，在移除黄色reference之后，在添加引用时会发现找不到相应的Word、Excel和office组件。  
+
+![image1](images/1.png)
+
+![image2](images/3.png)
+
+![image3](images/2.png)
+
+②使用NuGet包添加引用  
+
+点击 `工具-NuGet包管理器-管理解决方案的NuGet程序包`，搜索相应的引用Microsoft.Office.Interop.Excel、Microsoft.Office.Interop.Word和Office,并选择安装进工程WPFTest  
+
+![image4](images/4.png)
+
+![image5](images/5.png)
+
+![image6](images/6.png)
+
+同时将Microsoft.Office.Interop.Excel安装到工程Utils中  
+
+![image7](images/7.png)
+
+③安装完成  
+
+![image8](images/8.png)
