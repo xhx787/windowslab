@@ -26,8 +26,6 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "dll_clr", "dll_clr\dll_clr.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{BD69380B-D3C1-474F-B45D-FE14C11E64EB}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "setupCOM", "setupCOM\setupCOM.vdproj", "{2526F4B3-C658-4240-AC0C-5DAD98EF00AA}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -130,12 +128,6 @@ Global
 		{BD69380B-D3C1-474F-B45D-FE14C11E64EB}.Release|x64.Build.0 = Release|Any CPU
 		{BD69380B-D3C1-474F-B45D-FE14C11E64EB}.Release|x86.ActiveCfg = Release|Any CPU
 		{BD69380B-D3C1-474F-B45D-FE14C11E64EB}.Release|x86.Build.0 = Release|Any CPU
-		{2526F4B3-C658-4240-AC0C-5DAD98EF00AA}.Debug|Any CPU.ActiveCfg = Debug
-		{2526F4B3-C658-4240-AC0C-5DAD98EF00AA}.Debug|x64.ActiveCfg = Debug
-		{2526F4B3-C658-4240-AC0C-5DAD98EF00AA}.Debug|x86.ActiveCfg = Debug
-		{2526F4B3-C658-4240-AC0C-5DAD98EF00AA}.Release|Any CPU.ActiveCfg = Release
-		{2526F4B3-C658-4240-AC0C-5DAD98EF00AA}.Release|x64.ActiveCfg = Release
-		{2526F4B3-C658-4240-AC0C-5DAD98EF00AA}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

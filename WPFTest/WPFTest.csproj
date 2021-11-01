@@ -149,20 +149,20 @@
     <Compile Include="UI\Chapter1\C1_SY2.xaml.cs">
       <DependentUpon>C1_SY2.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UI\Chapter2\C2_SY2.xaml.cs">
-      <DependentUpon>C2_SY2.xaml</DependentUpon>
+    <Compile Include="UI\Chapter6\C6_SY2.xaml.cs">
+      <DependentUpon>C6_SY2.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UI\Chapter2\C2_SY1.xaml.cs">
-      <DependentUpon>C2_SY1.xaml</DependentUpon>
+    <Compile Include="UI\Chapter6\C6_SY1.xaml.cs">
+      <DependentUpon>C6_SY1.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UI\Chapter3\C3_SY3.xaml.cs">
-      <DependentUpon>C3_SY3.xaml</DependentUpon>
+    <Compile Include="UI\Chapter7\C7_SY3.xaml.cs">
+      <DependentUpon>C7_SY3.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UI\Chapter3\C3_SY2.xaml.cs">
-      <DependentUpon>C3_SY2.xaml</DependentUpon>
+    <Compile Include="UI\Chapter7\C7_SY2.xaml.cs">
+      <DependentUpon>C7_SY2.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UI\Chapter3\C3_SY1.xaml.cs">
-      <DependentUpon>C3_SY1.xaml</DependentUpon>
+    <Compile Include="UI\Chapter7\C7_SY1.xaml.cs">
+      <DependentUpon>C7_SY1.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\Chapter4\C4_SY5.xaml.cs">
       <DependentUpon>C4_SY5.xaml</DependentUpon>
@@ -185,17 +185,17 @@
     <Compile Include="UI\Chapter5\C5_SY1.xaml.cs">
       <DependentUpon>C5_SY1.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UI\Chapter6\ADOTest.xaml.cs">
+    <Compile Include="UI\Chapter9\ADOTest.xaml.cs">
       <DependentUpon>ADOTest.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UI\Chapter6\RoomTypeListPage.xaml.cs">
+    <Compile Include="UI\Chapter9\RoomTypeListPage.xaml.cs">
       <DependentUpon>RoomTypeListPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\ChildPage.cs" />
-    <Compile Include="UI\Chapter6\FileEdit.xaml.cs">
+    <Compile Include="UI\Chapter9\FileEdit.xaml.cs">
       <DependentUpon>FileEdit.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UI\Chapter6\FileListPage.xaml.cs">
+    <Compile Include="UI\Chapter9\FileListPage.xaml.cs">
       <DependentUpon>FileListPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\DataGridHelper.cs" />
@@ -211,17 +211,17 @@
     <Compile Include="UI\Menu\MenuPageChapter4.xaml.cs">
       <DependentUpon>MenuPageChapter4.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UI\Menu\MenuPageChapter3.xaml.cs">
-      <DependentUpon>MenuPageChapter3.xaml</DependentUpon>
+    <Compile Include="UI\Menu\MenuPageChapter7.xaml.cs">
+      <DependentUpon>MenuPageChapter7.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UI\Menu\MenuPageChapter2.xaml.cs">
-      <DependentUpon>MenuPageChapter2.xaml</DependentUpon>
+    <Compile Include="UI\Menu\MenuPageChapter6.xaml.cs">
+      <DependentUpon>MenuPageChapter6.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\Menu\MenuPageChapter1.xaml.cs">
       <DependentUpon>MenuPageChapter1.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UI\Menu\MenuPageChapter6.xaml.cs">
-      <DependentUpon>MenuPageChapter6.xaml</DependentUpon>
+    <Compile Include="UI\Menu\MenuPageChapter9.xaml.cs">
+      <DependentUpon>MenuPageChapter9.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\Menu\MenuPageIndex.xaml.cs">
       <DependentUpon>MenuPageIndex.xaml</DependentUpon>
@@ -256,23 +256,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UI\Chapter2\C2_SY2.xaml">
+    <Page Include="UI\Chapter6\C6_SY2.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="UI\Chapter2\C2_SY1.xaml">
+    <Page Include="UI\Chapter6\C6_SY1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UI\Chapter3\C3_SY3.xaml">
+    <Page Include="UI\Chapter7\C7_SY3.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="UI\Chapter3\C3_SY2.xaml">
+    <Page Include="UI\Chapter7\C7_SY2.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="UI\Chapter3\C3_SY1.xaml">
+    <Page Include="UI\Chapter7\C7_SY1.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -304,19 +304,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="UI\Chapter6\FileEdit.xaml">
+    <Page Include="UI\Chapter9\FileEdit.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UI\Chapter6\ADOTest.xaml">
+    <Page Include="UI\Chapter9\ADOTest.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="UI\Chapter6\RoomTypeListPage.xaml">
+    <Page Include="UI\Chapter9\RoomTypeListPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="UI\Chapter6\FileListPage.xaml">
+    <Page Include="UI\Chapter9\FileListPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -336,11 +336,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="UI\Menu\MenuPageChapter3.xaml">
+    <Page Include="UI\Menu\MenuPageChapter7.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="UI\Menu\MenuPageChapter2.xaml">
+    <Page Include="UI\Menu\MenuPageChapter6.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -348,7 +348,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UI\Menu\MenuPageChapter6.xaml">
+    <Page Include="UI\Menu\MenuPageChapter9.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

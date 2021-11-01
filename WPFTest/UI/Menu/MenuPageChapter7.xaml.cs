@@ -17,33 +17,33 @@ namespace WPFTest.UI.Menu
     /// <summary>
     /// MenuPageChapter1.xaml 的交互逻辑
     /// </summary>
-    public partial class MenuPageChapter3 : ChildPage
+    public partial class MenuPageChapter7 : ChildPage
     {
-        public MenuPageChapter3()
+        public MenuPageChapter7()
         {
             InitializeComponent();
         }
 
         private void ChildPage_Loaded(object sender, RoutedEventArgs e)
         {
-            FireNextEvent("chapter3_sy1");
+            FireNextEvent("chapter7_sy1");
         }
 
         private void sy1_Click(object sender, RoutedEventArgs e)
         {
-            FireNextEvent("chapter3_sy1");
+            FireNextEvent("chapter7_sy1");
         }
 
         private void sy2_Click(object sender, RoutedEventArgs e)
         {
-            FireNextEvent("chapter3_sy2");
+            FireNextEvent("chapter7_sy2");
         }
 
        
 
         private void sy3_Click(object sender, RoutedEventArgs e)
         {
-            FireNextEvent("chapter3_sy3");
+            FireNextEvent("chapter7_sy3");
         }
     }
 }

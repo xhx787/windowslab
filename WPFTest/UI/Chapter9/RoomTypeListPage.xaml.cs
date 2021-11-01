@@ -17,7 +17,7 @@ using System.Data;
 using Utils;
 using Models.Entity;
 
-namespace WPFTest.UI.Chapter6
+namespace WPFTest.UI.Chapter9
 {
     /// <summary>
     /// RoomTypeListPage.xaml 的交互逻辑

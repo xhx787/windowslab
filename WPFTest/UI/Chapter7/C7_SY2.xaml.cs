@@ -19,14 +19,14 @@ using MsWord = Microsoft.Office.Interop.Word;
 using System.IO;
 using System.Diagnostics;
 
-namespace WPFTest.UI.Chapter3
+namespace WPFTest.UI.Chapter7
 {
     /// <summary>
     /// C2_SY1.xaml 的交互逻辑
     /// </summary>
-    public partial class C3_SY2 : ChildPage
+    public partial class C7_SY2 : ChildPage
     {
-        public C3_SY2()
+        public C7_SY2()
         {
             InitializeComponent();
 

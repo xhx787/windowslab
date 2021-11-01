@@ -554,7 +554,6 @@ namespace WPFTest.UI.Chapter4
 
         private void produceConsume(object sender, RoutedEventArgs e)
         {
-            /*
             ProducerConsumer pc = new ProducerConsumer(this);
             ProducerConsumer.SharedBuffer = 20;
             ProducerConsumer.mut = new Mutex(false, "Tr");
@@ -565,7 +564,6 @@ namespace WPFTest.UI.Chapter4
             ProducerConsumer.threadVec[1].Start();
             ProducerConsumer.threadVec[0].Join();
             ProducerConsumer.threadVec[1].Join();
-            */
         }
 
 

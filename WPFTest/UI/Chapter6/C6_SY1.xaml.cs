@@ -18,14 +18,14 @@ using System.Windows.Shapes;
 // <1> 创建C#工程项目，项目类型为应用程序
 // <2> 打开引用管理器，引用托管动态链接库的DLL文件
 
-namespace WPFTest.UI.Chapter2
+namespace WPFTest.UI.Chapter6
 {
     /// <summary>
-    /// C2_SY1.xaml 的交互逻辑
+    /// C6_SY1.xaml 的交互逻辑
     /// </summary>
-    public partial class C2_SY1 : ChildPage
+    public partial class C6_SY1 : ChildPage
     {
-        public C2_SY1()
+        public C6_SY1()
         {
             InitializeComponent();
 

@@ -17,7 +17,7 @@ using Microsoft.Win32;
 using Models.Entity;
 using Utils;
 
-namespace WPFTest.UI.Chapter6
+namespace WPFTest.UI.Chapter9
 {
     /// <summary>
     /// FgEdit.xaml 的交互逻辑

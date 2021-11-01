@@ -8,11 +8,11 @@ using System.Windows;
 // 特性集控制。更改这些特性值可修改
 // 与程序集关联的信息。
 [assembly: AssemblyTitle("WPFTest")]
-[assembly: AssemblyDescription("course lab: programming windows")]
+[assembly: AssemblyDescription("course lab: Principle Windows")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Wuhan University")]
 [assembly: AssemblyProduct("WPFTest")]
-[assembly: AssemblyCopyright("Copyright ©  2019")]
+[assembly: AssemblyCopyright("Copyright ©  2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

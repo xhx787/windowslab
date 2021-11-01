@@ -16,14 +16,14 @@ using System.Windows.Shapes;
 
 using dll_csharp;
 
-namespace WPFTest.UI.Chapter3
+namespace WPFTest.UI.Chapter6
 {
     /// <summary>
     /// C2_SY1.xaml 的交互逻辑
     /// </summary>
-    public partial class C3_SY1 : ChildPage
+    public partial class C6_SY2 : ChildPage
     {
-        public C3_SY1()
+        public C6_SY2()
         {
             InitializeComponent();
 
@@ -33,15 +33,21 @@ namespace WPFTest.UI.Chapter3
         {
             string strText1 = textBox1.Text.Trim();
             string strText2 = textBox2.Text.Trim();
-            string ret = ComTest.add("944CA448-AE53-47C8-84ED-80DBD799E3BD", "Simulation Transaction", int.Parse(strText1), int.Parse(strText2));
+            // 非托管动态链接库DLL的调用过程:
+            // <3> 在程序中调用重新声明的函数
+            int ret = DllTest.testAdd(int.Parse(strText1), int.Parse(strText2));
             textBox3.Text = String.Concat(ret);
         }
+
+
 
         private void btn2_Click_1(object sender, RoutedEventArgs e)
         {
             string strText1 = textBox5.Text.Trim();
             string strText2 = textBox6.Text.Trim();
-            string ret = ComTest.multi("A0FD122E-58B0-4BC8-9CB9-31673DCC7DB8", "User Transaction", int.Parse(strText1), int.Parse(strText2));
+            // 非托管动态链接库DLL的调用过程:
+            // <3> 在程序中调用重新声明的函数
+            int ret = DllTest.testMulti(int.Parse(strText1), int.Parse(strText2));
             textBox7.Text = String.Concat(ret);
         }
     }

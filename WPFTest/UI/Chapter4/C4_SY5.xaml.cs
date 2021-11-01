@@ -47,7 +47,7 @@ namespace WPFTest.UI.Chapter4
 
         private void ChildPage_Loaded(object sender, RoutedEventArgs e)
         {
-            WINDOW_HANDLER = FindWindow(null, "demo");
+            WINDOW_HANDLER = FindWindow(null, "wpfTest");
 
             HwndSource hWndSource;
             WindowInteropHelper wih = new WindowInteropHelper(this.parentWindow);

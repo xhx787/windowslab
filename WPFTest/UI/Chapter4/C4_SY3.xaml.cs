@@ -169,7 +169,7 @@ namespace WPFTest.UI.Chapter4
 
             //通过查找窗口，封装数据，发送消息的方式来异步更新控件
             //通过FindWindow API的方式找到目标进程句柄，然后发送消息
-            IntPtr WINDOW_HANDLER = FindWindow(null, "demo");
+            IntPtr WINDOW_HANDLER = FindWindow(null, "wpfTest");
 
             if (WINDOW_HANDLER != IntPtr.Zero)
             {

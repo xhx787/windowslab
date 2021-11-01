@@ -15,7 +15,7 @@ using System.Windows.Shapes;
 namespace WPFTest.UI.Menu
 {
     /// <summary>
-    /// MenuPageChapter6.xaml 的交互逻辑
+    /// MenuPageChapter1.xaml 的交互逻辑
     /// </summary>
     public partial class MenuPageChapter6 : ChildPage
     {
@@ -24,24 +24,23 @@ namespace WPFTest.UI.Menu
             InitializeComponent();
         }
 
-        private void ChildPage_Loaded_1(object sender, RoutedEventArgs e)
-        {
-            FireNextEvent("chapter6_sy2");
-        }
+      
 
-        private void file_Click_1(object sender, RoutedEventArgs e)
+        private void sy1_Click(object sender, RoutedEventArgs e)
         {
             FireNextEvent("chapter6_sy1");
         }
 
-        private void excel_Click_1(object sender, RoutedEventArgs e)
+
+
+        private void sy2_Click(object sender, RoutedEventArgs e)
         {
             FireNextEvent("chapter6_sy2");
         }
 
-        private void ado_Click_1(object sender, RoutedEventArgs e)
+        private void ChildPage_Loaded(object sender, RoutedEventArgs e)
         {
-            FireNextEvent("chapter6_sy3");
+            FireNextEvent("chapter6_sy1");
         }
     }
 }

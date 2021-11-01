@@ -19,7 +19,7 @@ using Models.Entity;
 using System.Data.SqlClient;
 using System.Collections.ObjectModel;
 
-namespace WPFTest.UI.Chapter6
+namespace WPFTest.UI.Chapter9
 {
     /// <summary>
     /// ADOTest.xaml 的交互逻辑
