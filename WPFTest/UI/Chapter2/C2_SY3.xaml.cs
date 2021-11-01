@@ -20,12 +20,12 @@ using System.Runtime.InteropServices;
 using System.Windows.Interop;
 using Utils;
 
-namespace WPFTest.UI.Chapter4
+namespace WPFTest.UI.Chapter2
 {
     /// <summary>
     /// C2_SY1.xaml 的交互逻辑
     /// </summary>
-    public partial class C4_SY3 : ChildPage
+    public partial class C2_SY3 : ChildPage
     {
 
         public static Process cmdP;
@@ -63,13 +63,13 @@ namespace WPFTest.UI.Chapter4
         [DllImport("user32.dll", EntryPoint = "FindWindowEx")]
         private static extern IntPtr FindWindowEx(IntPtr hwndParent, uint hwndChildAfter, string lpszClass, string lpszWindow);
 
-        public C4_SY3()
+        public C2_SY3()
         {
             InitializeComponent();
 
         }
 
-        public C4_SY3(MainWindow parent)
+        public C2_SY3(MainWindow parent)
         {
             InitializeComponent();
             this.parentWindow = parent;

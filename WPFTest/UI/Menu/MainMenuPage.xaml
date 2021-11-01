@@ -33,7 +33,7 @@
         <Label x:Name="label6" Grid.Column="5" Content="第五讲" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20" Width="100" MouseLeftButtonDown="label6_MouseLeftButtonDown_1" />
         <Label x:Name="label7" Grid.Column="6" Content="第六讲" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20" Width="100" MouseLeftButtonDown="label7_MouseLeftButtonDown_1" />
         <Label x:Name="label8" Grid.Column="7" Content="第七讲" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20" Width="100" MouseLeftButtonDown="label8_MouseLeftButtonDown_1" />
-        <Label x:Name="label9" Grid.Column="8" Content="......" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20" Width="100" MouseLeftButtonDown="label9_MouseLeftButtonDown_1" />
+        <Label x:Name="label9" Grid.Column="8" Content="第八讲" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20" Width="100" MouseLeftButtonDown="label9_MouseLeftButtonDown_1" />
         <Label x:Name="label10" Grid.Column="9" Content="第九讲" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20" Width="100" MouseLeftButtonDown="label10_MouseLeftButtonDown_1" />
 
     </Grid>

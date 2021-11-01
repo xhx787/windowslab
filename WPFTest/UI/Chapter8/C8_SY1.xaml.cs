@@ -20,24 +20,24 @@ using System.Runtime.InteropServices;
 using System.Windows.Interop;
 using Utils;
 
-namespace WPFTest.UI.Chapter5
+namespace WPFTest.UI.Chapter8
 {
     /// <summary>
-    /// C2_SY1.xaml 的交互逻辑
+    /// C8_SY1.xaml 的交互逻辑
     /// </summary>
-    public partial class C5_SY1 : ChildPage
+    public partial class C8_SY1 : ChildPage
     {
 
         public static Process cmdP;
         public static StreamWriter cmdStreamInput;
         
-        public C5_SY1()
+        public C8_SY1()
         {
             InitializeComponent();
 
         }
 
-        public C5_SY1(MainWindow parent)
+        public C8_SY1(MainWindow parent)
         {
             InitializeComponent();
             this.parentWindow = parent;
@@ -148,9 +148,9 @@ namespace WPFTest.UI.Chapter5
         //用于处理事件的类1：FireHandlerClass，这个类定义了实际事件处理代码
         class FireHandlerClass
         {
-            private C5_SY1 parent;
+            private C8_SY1 parent;
             //事件处理类的构造函数使用事件源类作为参数
-            public FireHandlerClass(C5_SY1 _parent,FireAlarm fireAlarm)
+            public FireHandlerClass(C8_SY1 _parent,FireAlarm fireAlarm)
             {
                 parent = _parent;
                 //将事件处理的代理(函数指针) 添加到FireAlarm 类的FireEvent 事件中，当事件发生时，
@@ -182,10 +182,10 @@ namespace WPFTest.UI.Chapter5
         //用于处理事件的类2：FireWatcherClass
         class FireWatcherClass
         {
-            private C5_SY1 parent;
+            private C8_SY1 parent;
 
             //事件处理类的构造函数使用事件源类作为参数
-            public FireWatcherClass(C5_SY1 _parent, FireAlarm fireAlarm)
+            public FireWatcherClass(C8_SY1 _parent, FireAlarm fireAlarm)
             {
                 parent = _parent;
                 //将事件处理的代理(函数指针) 添加到FireAlarm 类的FireEvent 事件中，当事件发生

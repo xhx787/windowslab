@@ -164,26 +164,26 @@
     <Compile Include="UI\Chapter7\C7_SY1.xaml.cs">
       <DependentUpon>C7_SY1.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UI\Chapter4\C4_SY5.xaml.cs">
-      <DependentUpon>C4_SY5.xaml</DependentUpon>
+    <Compile Include="UI\Chapter3\C3_SY2.xaml.cs">
+      <DependentUpon>C3_SY2.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UI\Chapter4\C4_SY4.xaml.cs">
-      <DependentUpon>C4_SY4.xaml</DependentUpon>
+    <Compile Include="UI\Chapter3\C3_SY1.xaml.cs">
+      <DependentUpon>C3_SY1.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UI\Chapter4\C4_SY3.xaml.cs">
-      <DependentUpon>C4_SY3.xaml</DependentUpon>
+    <Compile Include="UI\Chapter2\C2_SY3.xaml.cs">
+      <DependentUpon>C2_SY3.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UI\Chapter4\C4_SY2.xaml.cs">
-      <DependentUpon>C4_SY2.xaml</DependentUpon>
+    <Compile Include="UI\Chapter2\C2_SY2.xaml.cs">
+      <DependentUpon>C2_SY2.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UI\Chapter4\C4_SY1.xaml.cs">
-      <DependentUpon>C4_SY1.xaml</DependentUpon>
+    <Compile Include="UI\Chapter2\C2_SY1.xaml.cs">
+      <DependentUpon>C2_SY1.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UI\Chapter5\C5_SY2.xaml.cs">
-      <DependentUpon>C5_SY2.xaml</DependentUpon>
+    <Compile Include="UI\Chapter8\C8_SY2.xaml.cs">
+      <DependentUpon>C8_SY2.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UI\Chapter5\C5_SY1.xaml.cs">
-      <DependentUpon>C5_SY1.xaml</DependentUpon>
+    <Compile Include="UI\Chapter8\C8_SY1.xaml.cs">
+      <DependentUpon>C8_SY1.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\Chapter9\ADOTest.xaml.cs">
       <DependentUpon>ADOTest.xaml</DependentUpon>
@@ -205,11 +205,14 @@
     <Compile Include="UI\Menu\HeadPage.xaml.cs">
       <DependentUpon>HeadPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UI\Menu\MenuPageChapter5.xaml.cs">
-      <DependentUpon>MenuPageChapter5.xaml</DependentUpon>
+    <Compile Include="UI\Menu\MenuPageChapter2.xaml.cs">
+      <DependentUpon>MenuPageChapter2.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UI\Menu\MenuPageChapter4.xaml.cs">
-      <DependentUpon>MenuPageChapter4.xaml</DependentUpon>
+    <Compile Include="UI\Menu\MenuPageChapter8.xaml.cs">
+      <DependentUpon>MenuPageChapter8.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Menu\MenuPageChapter3.xaml.cs">
+      <DependentUpon>MenuPageChapter3.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\Menu\MenuPageChapter7.xaml.cs">
       <DependentUpon>MenuPageChapter7.xaml</DependentUpon>
@@ -276,31 +279,31 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="UI\Chapter4\C4_SY5.xaml">
+    <Page Include="UI\Chapter3\C3_SY2.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="UI\Chapter4\C4_SY4.xaml">
+    <Page Include="UI\Chapter3\C3_SY1.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="UI\Chapter4\C4_SY3.xaml">
+    <Page Include="UI\Chapter2\C2_SY3.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="UI\Chapter4\C4_SY2.xaml">
+    <Page Include="UI\Chapter2\C2_SY2.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="UI\Chapter4\C4_SY1.xaml">
+    <Page Include="UI\Chapter2\C2_SY1.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="UI\Chapter5\C5_SY2.xaml">
+    <Page Include="UI\Chapter8\C8_SY2.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="UI\Chapter5\C5_SY1.xaml">
+    <Page Include="UI\Chapter8\C8_SY1.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -328,11 +331,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UI\Menu\MenuPageChapter5.xaml">
+    <Page Include="UI\Menu\MenuPageChapter2.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="UI\Menu\MenuPageChapter4.xaml">
+    <Page Include="UI\Menu\MenuPageChapter8.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Menu\MenuPageChapter3.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

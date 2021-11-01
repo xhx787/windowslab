@@ -23,22 +23,22 @@ using System.Threading;
 using System.Windows.Forms;
 using System.Drawing;
 
-namespace WPFTest.UI.Chapter4
+namespace WPFTest.UI.Chapter3
 {
     /// <summary>
     /// C2_SY1.xaml 的交互逻辑
     /// </summary>
-    public partial class C4_SY5 : ChildPage
+    public partial class C3_SY2 : ChildPage
     {
 
        
-        public C4_SY5()
+        public C3_SY2()
         {
             InitializeComponent();
            
         }
 
-        public C4_SY5(MainWindow parent)
+        public C3_SY2(MainWindow parent)
         {
             InitializeComponent();
             this.parentWindow = parent;

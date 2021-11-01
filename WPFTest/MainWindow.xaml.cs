@@ -20,10 +20,11 @@ using Utils;
 using WPFTest.UI.Menu;
 using WPFTest.UI.Index;
 using WPFTest.UI.Chapter1;
-using WPFTest.UI.Chapter4;
-using WPFTest.UI.Chapter5;
+using WPFTest.UI.Chapter2;
+using WPFTest.UI.Chapter3;
 using WPFTest.UI.Chapter6;
 using WPFTest.UI.Chapter7;
+using WPFTest.UI.Chapter8;
 using WPFTest.UI.Chapter9;
 
 namespace WPFTest
@@ -95,17 +96,16 @@ namespace WPFTest
                 page = createPageFgbz();
             else if ("chapter1".Equals(topMenuName))
                 page = createPageChapter1();
- //           else if ("chapter3".Equals(topMenuName))
- //               ;
- //               page = createPageChapter3();
-            else if ("chapter4".Equals(topMenuName))
-                page = createPageChapter4();
-            else if ("chapter5".Equals(topMenuName))
-                page = createPageChapter5();
+            else if ("chapter2".Equals(topMenuName))
+                page = createPageChapter2();
+            else if ("chapter3".Equals(topMenuName))
+                page = createPageChapter3();
             else if ("chapter6".Equals(topMenuName))
                 page = createPageChapter6();
             else if ("chapter7".Equals(topMenuName))
                 page = createPageChapter7();
+            else if ("chapter8".Equals(topMenuName))
+                page = createPageChapter8();
             else if ("chapter9".Equals(topMenuName))
                 page = createPageChapter9();
             else
@@ -242,35 +242,27 @@ namespace WPFTest
             return page;
         }
 
-        private Page createPageChapter4()
+        private Page createPageChapter2()
         {
-            MenuPageChapter4 page = new MenuPageChapter4();
+            MenuPageChapter2 page = new MenuPageChapter2();
             page.NextEvent += ((object arg) =>
             {
-                if (arg.Equals("chapter4_sy1"))
+                if (arg.Equals("chapter2_sy1"))
                 {
-                    contentFrame.Content = createPageChapter4_sy1();
+                    contentFrame.Content = createPageChapter2_sy1();
                 }
-                else if (arg.Equals("chapter4_sy2"))
+                else if (arg.Equals("chapter2_sy2"))
                 {
-                    contentFrame.Content = createPageChapter4_sy2();
+                    contentFrame.Content = createPageChapter2_sy2();
                 }
-                else if (arg.Equals("chapter4_sy3"))
+                else if (arg.Equals("chapter2_sy3"))
                 {
-                    contentFrame.Content = createPageChapter4_sy3();
-                }
-                else if (arg.Equals("chapter4_sy4"))
-                {
-                    contentFrame.Content = createPageChapter4_sy4();
-                }
-                else if (arg.Equals("chapter4_sy5"))
-                {
-                    contentFrame.Content = createPageChapter4_sy5();
+                    contentFrame.Content = createPageChapter2_sy3();
                 }
                 else
                 {
                     MessageBox.Show("正在开发中......");
-                    contentFrame.Content = createPageChapter4_sy1();
+                    contentFrame.Content = createPageChapter2_sy1();
                 }
 
             });
@@ -278,9 +270,33 @@ namespace WPFTest
             return page;
         }
 
-        private Page createPageChapter4_sy1()
+        private Page createPageChapter3()
         {
-            C4_SY1 page = new C4_SY1(this);
+            MenuPageChapter3 page = new MenuPageChapter3();
+            page.NextEvent += ((object arg) =>
+            {
+                if (arg.Equals("chapter3_sy1"))
+                {
+                    contentFrame.Content = createPageChapter3_sy1();
+                }
+                else if (arg.Equals("chapter3_sy2"))
+                {
+                    contentFrame.Content = createPageChapter3_sy2();
+                }
+                else
+                {
+                    MessageBox.Show("正在开发中......");
+                    contentFrame.Content = createPageChapter3_sy1();
+                }
+
+            });
+
+            return page;
+        }
+
+        private Page createPageChapter2_sy1()
+        {
+            C2_SY1 page = new C2_SY1(this);
             page.NextEvent += ((object arg) =>
             {
                 page.update(arg);
@@ -288,48 +304,48 @@ namespace WPFTest
             return page;
         }
 
-        private Page createPageChapter4_sy2()
+        private Page createPageChapter2_sy2()
         {
-            C4_SY2 page = new C4_SY2(this);
+            C2_SY2 page = new C2_SY2(this);
             return page;
         }
 
-        private Page createPageChapter4_sy3()
+        private Page createPageChapter2_sy3()
         {
-            C4_SY3 page = new C4_SY3(this);
+            C2_SY3 page = new C2_SY3(this);
             return page;
         }
 
-        private Page createPageChapter4_sy4()
+        private Page createPageChapter3_sy1()
         {
-            C4_SY4 page = new C4_SY4(this);
+            C3_SY1 page = new C3_SY1(this);
             return page;
         }
 
-        private Page createPageChapter4_sy5()
+        private Page createPageChapter3_sy2()
         {
-            C4_SY5 page = new C4_SY5(this);
+            C3_SY2 page = new C3_SY2(this);
             return page;
         }
 
 
-        private Page createPageChapter5()
+        private Page createPageChapter8()
         {
-            MenuPageChapter5 page = new MenuPageChapter5();
+            MenuPageChapter8 page = new MenuPageChapter8();
             page.NextEvent += ((object arg) =>
             {
-                if (arg.Equals("chapter5_sy1"))
+                if (arg.Equals("chapter8_sy1"))
                 {
-                    contentFrame.Content = createPageChapter5_sy1();
+                    contentFrame.Content = createPageChapter8_sy1();
                 }
-                else if (arg.Equals("chapter5_sy2"))
+                else if (arg.Equals("chapter8_sy2"))
                 {
-                    contentFrame.Content = createPageChapter5_sy2();
+                    contentFrame.Content = createPageChapter8_sy2();
                 }
                 else
                 {
                     MessageBox.Show("正在开发中......");
-                    contentFrame.Content = createPageChapter5_sy1();
+                    contentFrame.Content = createPageChapter8_sy1();
                 }
 
             });
@@ -337,15 +353,15 @@ namespace WPFTest
             return page;
         }
 
-        private Page createPageChapter5_sy1()
+        private Page createPageChapter8_sy1()
         {
-            C5_SY1 page = new C5_SY1(this);
+            C8_SY1 page = new C8_SY1(this);
             return page;
         }
 
-        private Page createPageChapter5_sy2()
+        private Page createPageChapter8_sy2()
         {
-            C5_SY2 page = new C5_SY2(this);
+            C8_SY2 page = new C8_SY2(this);
             return page;
         }
 

@@ -21,22 +21,22 @@ using System.Windows.Interop;
 using Utils;
 using System.Threading;
 
-namespace WPFTest.UI.Chapter4
+namespace WPFTest.UI.Chapter3
 {
     /// <summary>
     /// C2_SY1.xaml 的交互逻辑
     /// </summary>
-    public partial class C4_SY4 : ChildPage
+    public partial class C3_SY1 : ChildPage
     {
 
        
-        public C4_SY4()
+        public C3_SY1()
         {
             InitializeComponent();
            
         }
 
-        public C4_SY4(MainWindow parent)
+        public C3_SY1(MainWindow parent)
         {
             InitializeComponent();
             this.parentWindow = parent;
@@ -133,8 +133,8 @@ namespace WPFTest.UI.Chapter4
 
         class ThreadTest
         {
-            private C4_SY4 parent;
-            public ThreadTest(C4_SY4 _parent)
+            private C3_SY1 parent;
+            public ThreadTest(C3_SY1 _parent)
             {
                 parent = _parent;
             }
@@ -193,9 +193,9 @@ namespace WPFTest.UI.Chapter4
 
         class BackGroundTest
         {
-            private C4_SY4 parent;
+            private C3_SY1 parent;
             private int Count;
-            public BackGroundTest(C4_SY4 _parent,int count)
+            public BackGroundTest(C3_SY1 _parent,int count)
             {
                 this.parent = _parent;
                 this.Count = count;
@@ -573,8 +573,8 @@ namespace WPFTest.UI.Chapter4
             public static Thread[] threadVec;
             public static int SharedBuffer;
 
-            private C4_SY4 parent;
-            public ProducerConsumer(C4_SY4 _parent)
+            private C3_SY1 parent;
+            public ProducerConsumer(C3_SY1 _parent)
             {
                 parent = _parent;
             }

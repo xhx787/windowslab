@@ -53,9 +53,11 @@ namespace WPFTest.UI.Menu
                     break;
 
                 case 3:
+                    label3.Foreground = new SolidColorBrush(Color.FromArgb(255, 255, 0, 0));
                     break;
 
                 case 4:
+                    label4.Foreground = new SolidColorBrush(Color.FromArgb(255, 255, 0, 0));
                     break;
 
                 case 5:
@@ -75,6 +77,7 @@ namespace WPFTest.UI.Menu
                     break;
 
                 case 9:
+                    label9.Foreground = new SolidColorBrush(Color.FromArgb(255, 255, 0, 0));
                     break;
 
                 case 10:

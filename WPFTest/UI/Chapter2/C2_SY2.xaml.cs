@@ -20,12 +20,12 @@ using System.Runtime.InteropServices;
 using System.Windows.Interop;
 using Utils;
 
-namespace WPFTest.UI.Chapter4
+namespace WPFTest.UI.Chapter2
 {
     /// <summary>
     /// C2_SY1.xaml 的交互逻辑
     /// </summary>
-    public partial class C4_SY2 : ChildPage
+    public partial class C2_SY2 : ChildPage
     {
 
         public static Process cmdP;
@@ -33,13 +33,13 @@ namespace WPFTest.UI.Chapter4
         private static StringBuilder cmdOutput = null;
 
         
-        public C4_SY2()
+        public C2_SY2()
         {
             InitializeComponent();
 
         }
 
-        public C4_SY2(MainWindow parent)
+        public C2_SY2(MainWindow parent)
         {
             InitializeComponent();
             this.parentWindow = parent;

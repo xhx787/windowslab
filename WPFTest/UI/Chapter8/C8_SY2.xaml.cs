@@ -20,26 +20,16 @@ using System.Runtime.InteropServices;
 using System.Windows.Interop;
 using Utils;
 
-namespace WPFTest.UI.Chapter4
+namespace WPFTest.UI.Chapter8
 {
     /// <summary>
-    /// C2_SY1.xaml 的交互逻辑
+    /// C8_SY1.xaml 的交互逻辑
     /// </summary>
-    public partial class C4_SY1 : ChildPage
+    public partial class C8_SY2 : ChildPage
     {
 
-        public static Process cmdP;
-        public static StreamWriter cmdStreamInput;
-        private static StringBuilder cmdOutput = null;
-
-        public static IntPtr main_whandle;
-        public static IntPtr text_whandle;
-
-
-
         #region 定义常量消息值
-        public const int TRAN_FINISHED = 0x500;
-        public const int WM_COPYDATA = 0x004A;
+        public const int WM_COPYDATA = 0x005A;
         #endregion
 
         #region 定义结构体
@@ -67,20 +57,20 @@ namespace WPFTest.UI.Chapter4
         [DllImport("user32.dll", EntryPoint = "FindWindowEx")]
         private static extern IntPtr FindWindowEx(IntPtr hwndParent, uint hwndChildAfter, string lpszClass, string lpszWindow);
 
-        public C4_SY1()
+
+        public C8_SY2()
         {
             InitializeComponent();
 
         }
 
-        public C4_SY1(MainWindow parent)
+        public C8_SY2(MainWindow parent)
         {
             InitializeComponent();
             this.parentWindow = parent;
 
         }
 
-        //页面加载时，添加消息处理钩子函数
         private void ChildPage_Loaded(object sender, RoutedEventArgs e)
         {
             HwndSource hWndSource;
@@ -111,11 +101,7 @@ namespace WPFTest.UI.Chapter4
                         Console.WriteLine(e.Message);
                         break;
                     }
-                case TRAN_FINISHED:
-                    {
-                        showComment(cmdOutput.ToString());
-                        break;
-                    }
+               
                 default:
                     {
                         break;
@@ -124,80 +110,27 @@ namespace WPFTest.UI.Chapter4
             return hwnd;
         }
 
+
         private void clearComments()
         {
-            listBox1.Items.Clear();
-            //textBox2.Text = "";
+            textBox2.Text = "";
         }
 
         private void showComment(String comment)
         {
             if (MyStringUtil.isEmpty(comment)) {
-                listBox1.Items.Add("");
+                textBox2.Text = "";
                 return;
             }
 
-            listBox1.Items.Add(comment);
-            //textBox2.Text = comment;
+            textBox2.Text = comment;
         }
 
-        //定义回调
-        private delegate void updateDelegate(object comment);
-        public void update(object comment)
+     
+        private void sendMessage1(string msg)
         {
-            //showComment((string)comment);
-            if (!listBox1.Dispatcher.CheckAccess())
-            {
-                //声明，并实例化回调
-                updateDelegate d = update;
-                //使用回调
-                listBox1.Dispatcher.Invoke(d, comment);
-            }
-            else
-            {
-                showComment((string)comment);
-            }
-
-        }
-        
-
-        private void runCMD(object sender, RoutedEventArgs e)
-        {
-            clearComments();
-            string strCmd = "ping www.whu.edu.cn -n 20";
-            if (!MyStringUtil.isEmpty(textBox1.Text))
-                strCmd = "ping " + textBox1.Text.Trim() + " -n 20";
-
-            cmdOutput = new StringBuilder("");
-            
-            cmdP = new Process();
-            cmdP.StartInfo.FileName = "cmd.exe";
-            cmdP.StartInfo.CreateNoWindow = true;
-            cmdP.StartInfo.UseShellExecute = false;
-            cmdP.StartInfo.RedirectStandardOutput = true;
-            cmdP.StartInfo.RedirectStandardInput = true;
-            
-            cmdP.OutputDataReceived += new DataReceivedEventHandler(strOutputHandler);
-            cmdP.Start();
-
-            cmdStreamInput = cmdP.StandardInput;
-            cmdStreamInput.WriteLine(strCmd);
-            cmdStreamInput.WriteLine("exit");
-            cmdP.BeginOutputReadLine();
-        }
-
-        //如果有输出，则重定向至输出对象，并向窗口对象发送特定的消息WM_COPYDATA和封装数据COPYDATASTRUCT
-        private  void strOutputHandler(object sendingProcess,
-            DataReceivedEventArgs outLine)
-        {
-
-            //通过触发event，封装数据，并启动线程来异步更新控件
-            //fireEvent(outLine.Data);
-
-            cmdOutput.AppendLine(outLine.Data);
-
-            //通过查找窗口，封装数据，发送消息的方式来异步更新控件
-             //通过FindWindow API的方式找到目标进程句柄，然后发送消息
+            // 通过查找窗口，封装数据，发送消息的方式来异步更新控件
+            //通过FindWindow API的方式找到目标进程句柄，然后发送消息
             IntPtr WINDOW_HANDLER = FindWindow(null, "wpfTest");
 
             if (WINDOW_HANDLER != IntPtr.Zero)
@@ -206,21 +139,16 @@ namespace WPFTest.UI.Chapter4
 
                 COPYDATASTRUCT mystr = new COPYDATASTRUCT();
                 mystr.dwData = (IntPtr)0;
-                if (MyStringUtil.isEmpty(outLine.Data))
-                {
-                    mystr.cbData = 0;
-                    mystr.lpData = "";
-                }
-                else {
-                    byte[] sarr = System.Text.Encoding.Unicode.GetBytes(outLine.Data);
-                    mystr.cbData = sarr.Length + 1;
-                    mystr.lpData = outLine.Data;
-                }
+                byte[] sarr = System.Text.Encoding.Unicode.GetBytes(msg);
+                mystr.cbData = sarr.Length + 1;
+                mystr.lpData = msg;
                 SendMessage(WINDOW_HANDLER, WM_COPYDATA, 0, ref mystr);
             }
-            
+        }
 
-            /**或者通过枚举进程的方式找到目标进程句柄，然后发送消息
+        private void sendMessage2(string msg)
+        {
+            //**或者通过枚举进程的方式找到目标进程句柄，然后发送消息
             Process[] procs = Process.GetProcesses();
             foreach (Process p in procs)
             {
@@ -230,28 +158,31 @@ namespace WPFTest.UI.Chapter4
                     IntPtr hWnd = p.MainWindowHandle;
 
                     // 封装消息
-                    byte[] sarr = System.Text.Encoding.Unicode.GetBytes(outLine.Data);
+                    byte[] sarr = System.Text.Encoding.Unicode.GetBytes(msg);
                     int len = sarr.Length;
                     COPYDATASTRUCT cds2;
                     cds2.dwData = (IntPtr)0;
                     cds2.cbData = len + 1;
-                    cds2.lpData = outLine.Data;
+                    cds2.lpData = msg;
 
                     // 发送消息
                     SendMessage(hWnd, WM_COPYDATA, 0, ref cds2);
                 }
             }
-            **/
-
         }
 
-        private void fireEvent(string eventStr){
-            FireNextEvent(eventStr);
-        }
-
-        private void closeCMD(object sender, RoutedEventArgs e)
+        private void btn1_Click(object sender, RoutedEventArgs e)
         {
-            cmdP.Close();
+            clearComments();
+            string strMsg = textBox1.Text;
+            if (MyStringUtil.isEmpty(strMsg))
+            {
+                MessageBox.Show("请输入要发送的消息内容");
+                return;
+            }
+
+            sendMessage2(strMsg);
         }
+
     }
 }
