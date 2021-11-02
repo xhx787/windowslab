@@ -7,7 +7,7 @@
       xmlns:base="clr-namespace:WPFTest.UI"
       mc:Ignorable="d" 
        d:DesignHeight="600" d:DesignWidth="920"
-      Title="实验：进程同步调用" Loaded="ChildPage_Loaded" AutomationProperties.IsColumnHeader="True" WindowTitle="">
+      Title="实验：进程异步" Loaded="ChildPage_Loaded">
 
     <Grid HorizontalAlignment="Stretch"  Margin="0" VerticalAlignment="Stretch">
         
@@ -24,10 +24,10 @@
         <TextBox x:Name="textBox2"  Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="1" HorizontalAlignment="Left" Height="30"  Width="120" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Margin="160,5,0,5"/>
         <Label x:Name="label3" Grid.Row="0" Grid.Column="2" Content="="   HorizontalAlignment="Left" Height="30"  Width="120" VerticalAlignment="Center" HorizontalContentAlignment="Left"   />
         <TextBox x:Name="textBox3"  Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="1" HorizontalAlignment="Left" Height="30"  Width="120" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Margin="120,0,0,0"/>
-        <ListBox x:Name="listBox1"  Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" />
+         <TextBox x:Name="textBox2"  Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" HorizontalAlignment="Stretch"  TextWrapping="Wrap" Text="" VerticalAlignment="Stretch" />
         
         -->
-        <TextBox x:Name="textBox2"  Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" HorizontalAlignment="Stretch"  TextWrapping="Wrap" Text="" VerticalAlignment="Stretch" />
+        <ListBox x:Name="listBox1"  Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" />
 
 
         <Grid Grid.Row="0" Grid.Column="1">
@@ -40,11 +40,11 @@
                 <RowDefinition Height="*"></RowDefinition>
             </Grid.RowDefinitions>
 
-            <Label x:Name="label1" Grid.Row="0" Grid.Column="0" Content="ping主机"   HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Left"  Width="150" Height="24"  />
-            <TextBox x:Name="textBox1"  Grid.Row="1" Grid.Column="0"  HorizontalAlignment="Center" Height="30"  Width="150" TextWrapping="Wrap" Text="" VerticalAlignment="Center"  />
+            <Label x:Name="label1" Grid.Row="0" Grid.Column="0" Content="ping主机"   HorizontalAlignment="Stretch" VerticalAlignment="Center" HorizontalContentAlignment="Left" Margin="15,3" Height="24"  />
+            <TextBox x:Name="textBox1"  Grid.Row="1" Grid.Column="0"  HorizontalAlignment="Left" Height="30"  Width="150" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Margin="15,0,0,0"  />
             <Button x:Name="btn1" Grid.Row="3" Grid.Column="0"  Content="runCMD-ping" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="150" Height="30" Click="runCMD" />
             <!--
-            <Button x:Name="btn2" Grid.Row="3" Grid.Column="0"  Content="refresh" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="150" Height="30" />
+            <Button x:Name="btn2" Grid.Row="3" Grid.Column="0"  Content="refresh" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="100" Height="30" />
             -->
             <Button x:Name="btn3" Grid.Row="4" Grid.Column="0"  Content="closeCMD" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="150" Height="30" Click="closeCMD" />
 

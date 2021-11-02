@@ -173,11 +173,11 @@
     <Compile Include="UI\Chapter2\C2_SY3.xaml.cs">
       <DependentUpon>C2_SY3.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UI\Chapter2\C2_SY2.xaml.cs">
-      <DependentUpon>C2_SY2.xaml</DependentUpon>
-    </Compile>
     <Compile Include="UI\Chapter2\C2_SY1.xaml.cs">
       <DependentUpon>C2_SY1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Chapter2\C2_SY2.xaml.cs">
+      <DependentUpon>C2_SY2.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\Chapter8\C8_SY2.xaml.cs">
       <DependentUpon>C8_SY2.xaml</DependentUpon>
@@ -291,11 +291,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="UI\Chapter2\C2_SY2.xaml">
+    <Page Include="UI\Chapter2\C2_SY1.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="UI\Chapter2\C2_SY1.xaml">
+    <Page Include="UI\Chapter2\C2_SY2.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

@@ -19,8 +19,8 @@
             <RowDefinition Height="40"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-        <Button x:Name="sh2" Grid.Row="0"  Content="实验1-同步调用进程ping"  HorizontalAlignment="Center"  VerticalAlignment="Center" HorizontalContentAlignment="Left"  Width="160" Height="30" Click="sy2_Click"  />
-        <Button x:Name="sh1" Grid.Row="1"  Content="实验2-异步调用进程ping" HorizontalAlignment="Center"  VerticalAlignment="Center" HorizontalContentAlignment="Left" Width="160" Height="30" Click="sy1_Click" />
+        <Button x:Name="sh2" Grid.Row="0"  Content="实验1-同步调用进程ping"  HorizontalAlignment="Center"  VerticalAlignment="Center" HorizontalContentAlignment="Left"  Width="160" Height="30" Click="sy1_Click"  />
+        <Button x:Name="sh1" Grid.Row="1"  Content="实验2-异步调用进程ping" HorizontalAlignment="Center"  VerticalAlignment="Center" HorizontalContentAlignment="Left" Width="160" Height="30" Click="sy2_Click" />
         <Button x:Name="sh3" Grid.Row="2"  Content="实验3-异步调用进程getmac"  HorizontalAlignment="Center"  VerticalAlignment="Center" HorizontalContentAlignment="Left"  Width="160" Height="30" Click="sy3_Click"  />
     </Grid>
 </base:ChildPage>

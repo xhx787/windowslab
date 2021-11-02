@@ -297,16 +297,16 @@ namespace WPFTest
         private Page createPageChapter2_sy1()
         {
             C2_SY1 page = new C2_SY1(this);
-            page.NextEvent += ((object arg) =>
-            {
-                page.update(arg);
-            });
             return page;
         }
 
         private Page createPageChapter2_sy2()
         {
             C2_SY2 page = new C2_SY2(this);
+            page.NextEvent += ((object arg) =>
+            {
+                page.update(arg);
+            });
             return page;
         }
 

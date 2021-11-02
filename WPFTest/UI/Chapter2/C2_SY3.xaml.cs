@@ -23,7 +23,8 @@ using Utils;
 namespace WPFTest.UI.Chapter2
 {
     /// <summary>
-    /// C2_SY1.xaml 的交互逻辑
+    /// C2_SY3.xaml 的交互逻辑
+    /// 知识点: 重定向实现进程异步通信
     /// </summary>
     public partial class C2_SY3 : ChildPage
     {
@@ -146,9 +147,11 @@ namespace WPFTest.UI.Chapter2
             cmdOutput = new StringBuilder("");
             
             cmdP = new Process();
+
             cmdP.StartInfo.FileName = "cmd.exe";
             cmdP.StartInfo.CreateNoWindow = true;
             cmdP.StartInfo.UseShellExecute = false;
+
             cmdP.StartInfo.RedirectStandardOutput = true;
             cmdP.StartInfo.RedirectStandardInput = true;
             
