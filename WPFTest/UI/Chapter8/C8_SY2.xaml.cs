@@ -29,7 +29,8 @@ namespace WPFTest.UI.Chapter8
     {
 
         #region 定义常量消息值
-        public const int WM_COPYDATA = 0x005A;
+//      public const int WM_COPYDATA = 0x005A;
+        public const int WM_COPYDATA = 0x004A;
         #endregion
 
         #region 定义结构体

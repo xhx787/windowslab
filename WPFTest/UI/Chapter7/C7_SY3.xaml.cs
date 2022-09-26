@@ -167,7 +167,7 @@ namespace WPFTest.UI.Chapter7
                     }
                 }
                 //Close excel Process.
-                Console.WriteLine(AllProces[1].HasExited);
+                //Console.WriteLine(AllProces[1].HasExited);
                 OpenExcel(dest_file_name);
             }
         }

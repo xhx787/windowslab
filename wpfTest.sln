@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29509.3
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31912.275
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFTest", "WPFTest\WPFTest.csproj", "{93AD94FA-F8C3-4230-8229-782B768F8FF9}"
 EndProject
@@ -25,6 +25,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "dll_clr", "dll_clr\dll_clr.
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{BD69380B-D3C1-474F-B45D-FE14C11E64EB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataGridRow_DoubleClick.WPF", "DataGridRow_DoubleClick\DataGridRow_DoubleClick.WPF\DataGridRow_DoubleClick.WPF.csproj", "{C744417E-3B57-4316-B293-C941FE63876C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -128,6 +130,18 @@ Global
 		{BD69380B-D3C1-474F-B45D-FE14C11E64EB}.Release|x64.Build.0 = Release|Any CPU
 		{BD69380B-D3C1-474F-B45D-FE14C11E64EB}.Release|x86.ActiveCfg = Release|Any CPU
 		{BD69380B-D3C1-474F-B45D-FE14C11E64EB}.Release|x86.Build.0 = Release|Any CPU
+		{C744417E-3B57-4316-B293-C941FE63876C}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{C744417E-3B57-4316-B293-C941FE63876C}.Debug|Any CPU.Build.0 = Debug|x86
+		{C744417E-3B57-4316-B293-C941FE63876C}.Debug|x64.ActiveCfg = Debug|x86
+		{C744417E-3B57-4316-B293-C941FE63876C}.Debug|x64.Build.0 = Debug|x86
+		{C744417E-3B57-4316-B293-C941FE63876C}.Debug|x86.ActiveCfg = Debug|x86
+		{C744417E-3B57-4316-B293-C941FE63876C}.Debug|x86.Build.0 = Debug|x86
+		{C744417E-3B57-4316-B293-C941FE63876C}.Release|Any CPU.ActiveCfg = Release|x86
+		{C744417E-3B57-4316-B293-C941FE63876C}.Release|Any CPU.Build.0 = Release|x86
+		{C744417E-3B57-4316-B293-C941FE63876C}.Release|x64.ActiveCfg = Release|x86
+		{C744417E-3B57-4316-B293-C941FE63876C}.Release|x64.Build.0 = Release|x86
+		{C744417E-3B57-4316-B293-C941FE63876C}.Release|x86.ActiveCfg = Release|x86
+		{C744417E-3B57-4316-B293-C941FE63876C}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

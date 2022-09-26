@@ -30,7 +30,7 @@ using WPFTest.UI.Chapter9;
 namespace WPFTest
 {
     /// <summary>
-    /// MainWindow.xaml 的交互逻辑
+    /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {

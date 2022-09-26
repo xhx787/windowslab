@@ -19,7 +19,7 @@ using dll_csharp;
 namespace WPFTest.UI.Chapter6
 {
     /// <summary>
-    /// C2_SY1.xaml 的交互逻辑
+    /// C6_SY2.xaml 的交互逻辑
     /// </summary>
     public partial class C6_SY2 : ChildPage
     {
