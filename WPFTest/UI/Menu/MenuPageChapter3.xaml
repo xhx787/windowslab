@@ -19,7 +19,7 @@
             <RowDefinition Height="40"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-        <Button x:Name="sh4" Grid.Row="3"  Content="实验1-线程"  HorizontalAlignment="Center"  VerticalAlignment="Center" HorizontalContentAlignment="Left"  Width="160" Height="30" Click="sy1_Click"  />
-        <Button x:Name="sh5" Grid.Row="4"  Content="实验2-线程间同步通信"  HorizontalAlignment="Center"  VerticalAlignment="Center" HorizontalContentAlignment="Left"  Width="160" Height="30" Click="sy2_Click"  />
+        <Button x:Name="sh4" Grid.Row="0"  Content="实验1-线程"  HorizontalAlignment="Center"  VerticalAlignment="Center" HorizontalContentAlignment="Left"  Width="160" Height="30" Click="sy1_Click"  />
+        <Button x:Name="sh5" Grid.Row="1"  Content="实验2-线程间同步通信"  HorizontalAlignment="Center"  VerticalAlignment="Center" HorizontalContentAlignment="Left"  Width="160" Height="30" Click="sy2_Click"  />
     </Grid>
 </base:ChildPage>

@@ -23,70 +23,75 @@ namespace WPFTest.UI.Menu
         {
             m_iChapter  = 0;
 
+            m_objectCur = null;
+
             InitializeComponent();
         }
 
         int     m_iChapter;
 
+        private object m_objectCur;
+        public object ObjectCur { get { return m_objectCur; } set { m_objectCur = value; } }
+
         private void set_label_foreground ()
         {
-            label2.Foreground = new SolidColorBrush(Color.FromArgb(255, 0, 0, 255));
-            label3.Foreground = new SolidColorBrush(Color.FromArgb(255, 0, 0, 255));
-            label4.Foreground = new SolidColorBrush(Color.FromArgb(255, 0, 0, 255));
-            label5.Foreground = new SolidColorBrush(Color.FromArgb(255, 0, 0, 255));
-            label6.Foreground = new SolidColorBrush(Color.FromArgb(255, 0, 0, 255));
-            label7.Foreground = new SolidColorBrush(Color.FromArgb(255, 0, 0, 255));
-            label8.Foreground = new SolidColorBrush(Color.FromArgb(255, 0, 0, 255));
-            label9.Foreground = new SolidColorBrush(Color.FromArgb(255, 0, 0, 255));
-            label10.Foreground = new SolidColorBrush(Color.FromArgb(255, 0, 0, 255));
+////            label2.Foreground = new SolidColorBrush(Color.FromArgb(255, 0, 0, 255));
+//            label3.Foreground = new SolidColorBrush(Color.FromArgb(255, 0, 0, 255));
+//            label4.Foreground = new SolidColorBrush(Color.FromArgb(255, 0, 0, 255));
+//            label5.Foreground = new SolidColorBrush(Color.FromArgb(255, 0, 0, 255));
+//            label6.Foreground = new SolidColorBrush(Color.FromArgb(255, 0, 0, 255));
+//            label7.Foreground = new SolidColorBrush(Color.FromArgb(255, 0, 0, 255));
+//            label8.Foreground = new SolidColorBrush(Color.FromArgb(255, 0, 0, 255));
+//            label9.Foreground = new SolidColorBrush(Color.FromArgb(255, 0, 0, 255));
+//            label10.Foreground = new SolidColorBrush(Color.FromArgb(255, 0, 0, 255));
 
-            switch (m_iChapter)
-            {
-                case 0:
-                    break;
+//            switch (m_iChapter)
+//            {
+//                case 0:
+//                    break;
 
-                case 1:
-                    break;
+//                case 1:
+//                    break;
 
-                case 2:
-                    label2.Foreground = new SolidColorBrush(Color.FromArgb(255, 255, 0, 0));
-                    break;
+//                case 2:
+////                    label2.Foreground = new SolidColorBrush(Color.FromArgb(255, 255, 0, 0));
+//                    break;
 
-                case 3:
-                    label3.Foreground = new SolidColorBrush(Color.FromArgb(255, 255, 0, 0));
-                    break;
+//                case 3:
+//                    label3.Foreground = new SolidColorBrush(Color.FromArgb(255, 255, 0, 0));
+//                    break;
 
-                case 4:
-                    label4.Foreground = new SolidColorBrush(Color.FromArgb(255, 255, 0, 0));
-                    break;
+//                case 4:
+//                    label4.Foreground = new SolidColorBrush(Color.FromArgb(255, 255, 0, 0));
+//                    break;
 
-                case 5:
-                    label5.Foreground = new SolidColorBrush(Color.FromArgb(255, 255, 0, 0));
-                    break;
+//                case 5:
+//                    label5.Foreground = new SolidColorBrush(Color.FromArgb(255, 255, 0, 0));
+//                    break;
 
-                case 6:
-                    label6.Foreground = new SolidColorBrush(Color.FromArgb(255, 255, 0, 0));
-                    break;
+//                case 6:
+//                    label6.Foreground = new SolidColorBrush(Color.FromArgb(255, 255, 0, 0));
+//                    break;
 
-                case 7:
-                    label7.Foreground = new SolidColorBrush(Color.FromArgb(255, 255, 0, 0));
-                    break;
+//                case 7:
+//                    label7.Foreground = new SolidColorBrush(Color.FromArgb(255, 255, 0, 0));
+//                    break;
 
-                case 8:
-                    label8.Foreground = new SolidColorBrush(Color.FromArgb(255, 255, 0, 0));
-                    break;
+//                case 8:
+//                    label8.Foreground = new SolidColorBrush(Color.FromArgb(255, 255, 0, 0));
+//                    break;
 
-                case 9:
-                    label9.Foreground = new SolidColorBrush(Color.FromArgb(255, 255, 0, 0));
-                    break;
+//                case 9:
+//                    label9.Foreground = new SolidColorBrush(Color.FromArgb(255, 255, 0, 0));
+//                    break;
 
-                case 10:
-                    label10.Foreground = new SolidColorBrush(Color.FromArgb(255, 255, 0, 0));
-                    break;
+//                case 10:
+//                    label10.Foreground = new SolidColorBrush(Color.FromArgb(255, 255, 0, 0));
+//                    break;
 
-                default:
-                    break;
-            }
+//                default:
+//                    break;
+//            }
         }
 
         private void label1_MouseLeftButtonDown_1(object sender, MouseButtonEventArgs e)
@@ -172,6 +177,28 @@ namespace WPFTest.UI.Menu
         private void ChildPage_Loaded_1(object sender, RoutedEventArgs e)
         {
             parentWindow.createLeftMenuPage("chapter1");
+        }
+
+        private void element_MouseEnter(object sender, MouseEventArgs e)
+        {
+            ((TextBlock)sender).Background = new SolidColorBrush(Colors.Aqua);
+        }
+
+        private void element_MouseLeave(object sender, MouseEventArgs e)
+        {
+            ((TextBlock)sender).Background = null;
+        }
+
+        private void element_MouseLeftButtonUp(object sender, MouseEventArgs e)
+        {
+            if ( m_objectCur != null )
+            {
+                ((TextBlock)m_objectCur).Foreground = (SolidColorBrush)this.Resources["menu_foreground"];
+            }
+//            ((TextBlock)sender).Foreground = new SolidColorBrush(Colors.Red);
+            ((TextBlock)sender).Foreground = (SolidColorBrush)this.Resources["menu_foreground_hot"];
+
+            m_objectCur = (TextBlock)sender;
         }
     }
 }
