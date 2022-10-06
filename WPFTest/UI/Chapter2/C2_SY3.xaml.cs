@@ -35,7 +35,7 @@ namespace WPFTest.UI.Chapter2
         
         #region 定义常量消息值
         public const int TRAN_FINISHED = 0x501;
-        public const int WM_COPYDATA = 0x004B;
+        public const int WM_COPYDATA = 0x004A;
      
         #endregion
 
