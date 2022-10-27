@@ -21,14 +21,10 @@ namespace WPFTest.UI.Menu
     {
         public MainMenuPage()
         {
-            m_iChapter  = 0;
-
             m_objectCur = null;
 
             InitializeComponent();
         }
-
-        int     m_iChapter;
 
         private object m_objectCur;
         public object ObjectCur { get { return m_objectCur; } set { m_objectCur = value; } }
@@ -98,7 +94,6 @@ namespace WPFTest.UI.Menu
         {
             parentWindow.createLeftMenuPage("chapter0");
 
-            m_iChapter  = 1;
             set_label_foreground();
         }
 
@@ -106,7 +101,6 @@ namespace WPFTest.UI.Menu
         {
             parentWindow.createLeftMenuPage("chapter1");
 
-            m_iChapter  = 2;
             set_label_foreground();
        }
 
@@ -114,7 +108,6 @@ namespace WPFTest.UI.Menu
         {
             parentWindow.createLeftMenuPage("chapter2");
 
-            m_iChapter  = 3;
             set_label_foreground();
         }
 
@@ -122,7 +115,6 @@ namespace WPFTest.UI.Menu
         {
             parentWindow.createLeftMenuPage("chapter3");
 
-            m_iChapter  = 4;
             set_label_foreground();
         }
 
@@ -130,7 +122,6 @@ namespace WPFTest.UI.Menu
         {
             parentWindow.createLeftMenuPage("chapter4");
 
-            m_iChapter  = 5;
             set_label_foreground();
         }
 
@@ -138,7 +129,6 @@ namespace WPFTest.UI.Menu
         {
             parentWindow.createLeftMenuPage("chapter5");
 
-            m_iChapter  = 6;
             set_label_foreground();
         }
 
@@ -146,7 +136,6 @@ namespace WPFTest.UI.Menu
         {
             parentWindow.createLeftMenuPage("chapter6");
  
-            m_iChapter  = 7;
             set_label_foreground();
        }
 
@@ -154,7 +143,6 @@ namespace WPFTest.UI.Menu
         {
             parentWindow.createLeftMenuPage("chapter7");
  
-            m_iChapter  = 8;
             set_label_foreground();
         }
 
@@ -162,7 +150,6 @@ namespace WPFTest.UI.Menu
         {
             parentWindow.createLeftMenuPage("chapter8");
  
-            m_iChapter  = 9;
             set_label_foreground();
         }
 
@@ -170,7 +157,6 @@ namespace WPFTest.UI.Menu
         {
             parentWindow.createLeftMenuPage("chapter9");
  
-            m_iChapter  = 10;
             set_label_foreground();
         }
 

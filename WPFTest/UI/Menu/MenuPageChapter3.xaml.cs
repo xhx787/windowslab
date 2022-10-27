@@ -21,6 +21,8 @@ namespace WPFTest.UI.Menu
     {
         public MenuPageChapter3()
         {
+            m_objectCur = null;
+
             InitializeComponent();
         }
 
@@ -32,11 +34,13 @@ namespace WPFTest.UI.Menu
         private void sy1_Click(object sender, RoutedEventArgs e)
         {
             FireNextEvent("chapter3_sy1");
+            btnClick_base(sender, e);
         }
 
         private void sy2_Click(object sender, RoutedEventArgs e)
         {
             FireNextEvent("chapter3_sy2");
+            btnClick_base(sender, e);
         }
     }
 }

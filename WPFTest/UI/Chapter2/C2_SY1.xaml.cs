@@ -40,23 +40,23 @@ namespace WPFTest.UI.Chapter2
         
         public C2_SY1()
         {
-            InitializeComponent();
+            m_objectCur = null;
 
+            InitializeComponent();
         }
 
         public C2_SY1(MainWindow parent)
         {
+            m_objectCur = null;
+
             InitializeComponent();
             this.parentWindow = parent;
-
         }
 
         private void ChildPage_Loaded(object sender, RoutedEventArgs e)
         {
 
         }
-
-        
 
         private void clearComments()
         {
@@ -78,6 +78,9 @@ namespace WPFTest.UI.Chapter2
         private void runCMD(object sender, RoutedEventArgs e)
         {
             clearComments();
+
+            btnClick_base(sender, e);
+
             string strCmd = "ping www.sohu.com -n 20";
             if (!MyStringUtil.isEmpty(textBox1.Text))
                 strCmd = "ping " + textBox1.Text.Trim() + " -n 20";
@@ -118,11 +121,12 @@ namespace WPFTest.UI.Chapter2
             cmdP.Close();
         }
 
-     
-
         private void closeCMD(object sender, RoutedEventArgs e)
         {
+            btnClick_base(sender, e);
+
             cmdP.Close();
         }
+
     }
 }

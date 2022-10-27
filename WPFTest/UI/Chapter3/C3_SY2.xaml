@@ -9,6 +9,11 @@
        d:DesignHeight="600" d:DesignWidth="920"
       Title="实验：线程间同步通信机制" Loaded="ChildPage_Loaded">
 
+    <Page.Resources>
+        <SolidColorBrush x:Key="menu_foreground" Color="blue"/>
+        <SolidColorBrush x:Key="menu_foreground_hot" Color="Red"/>
+    </Page.Resources>
+
     <Grid HorizontalAlignment="Stretch"  Margin="0" VerticalAlignment="Stretch">
         
         <Grid.ColumnDefinitions>
@@ -45,12 +50,12 @@
                 <RowDefinition Height="*"></RowDefinition>
             </Grid.RowDefinitions>
 
-            <Button x:Name="btn1" Grid.Row="0" Grid.Column="0"  Content="选择文件监视目录" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="120" Height="30" Click="btn1_Click"  />
-            <Button x:Name="btn2" Grid.Row="1" Grid.Column="0"  Content="启动文件目录监视" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="120" Height="30" Click="btn2_Click" />
-            <Button x:Name="btn3" Grid.Row="2" Grid.Column="0"  Content="终止文件目录监视" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="120" Height="30" Click="btn3_Click" />
-            <Button x:Name="btn4" Grid.Row="3" Grid.Column="0"  Content="启动抓屏线程" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="120" Height="30" Click="btn4_Click"  />
-            <Button x:Name="btn5" Grid.Row="4" Grid.Column="0"  Content="抓屏" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="120" Height="30"   Click="btn5_Click" />
-            <Button x:Name="btn6" Grid.Row="5" Grid.Column="0"  Content="结束抓屏线程" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="120" Height="30" Click="btn6_Click" />
+            <Button x:Name="btn1" Grid.Row="0" Grid.Column="0"  Content="选择文件监视目录" Click="btn1_Click" Style="{StaticResource color_button}"  />
+            <Button x:Name="btn2" Grid.Row="1" Grid.Column="0"  Content="启动文件目录监视" Click="btn2_Click" Style="{StaticResource color_button}" />
+            <Button x:Name="btn3" Grid.Row="2" Grid.Column="0"  Content="终止文件目录监视" Click="btn3_Click" Style="{StaticResource color_button}" />
+            <Button x:Name="btn4" Grid.Row="3" Grid.Column="0"  Content="启动抓屏线程" Click="btn4_Click" Style="{StaticResource color_button}"  />
+            <Button x:Name="btn5" Grid.Row="4" Grid.Column="0"  Content="抓屏" Click="btn5_Click" Style="{StaticResource color_button}" />
+            <Button x:Name="btn6" Grid.Row="5" Grid.Column="0"  Content="结束抓屏线程" Click="btn6_Click" Style="{StaticResource color_button}" />
         </Grid>
 
     </Grid>

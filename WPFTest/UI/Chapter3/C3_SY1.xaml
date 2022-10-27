@@ -9,6 +9,18 @@
        d:DesignHeight="600" d:DesignWidth="920"
       Title="实验：线程" Loaded="ChildPage_Loaded">
 
+    <Page.Resources>
+        <SolidColorBrush x:Key="menu_foreground" Color="blue"/>
+        <SolidColorBrush x:Key="menu_foreground_hot" Color="Red"/>
+
+        <Style 
+            x:Key="right_button_style" 
+            BasedOn="{StaticResource color_button}"
+            TargetType="Button" >
+            <!--<EventSetter Event="Button.MouseLeftButtonUp" Handler="btnLeftButtonUp"/>-->
+        </Style>
+    </Page.Resources>
+
     <Grid HorizontalAlignment="Stretch"  Margin="0" VerticalAlignment="Stretch">
         
         <Grid.ColumnDefinitions>
@@ -49,17 +61,18 @@
                 <RowDefinition Height="*"></RowDefinition>
             </Grid.RowDefinitions>
 
-            <Button x:Name="btn1" Grid.Row="0" Grid.Column="0"  Content="当前线程" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="120" Height="30" Click="btn1_Click"/>
-            <Button x:Name="btn2" Grid.Row="1" Grid.Column="0"  Content="创建线程" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="120" Height="30" Click="btn2_Click"/>
-            <Button x:Name="btn3" Grid.Row="2" Grid.Column="0"  Content="前台线程" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="120" Height="30" Click="btn3_Click" />
-            <Button x:Name="btn4" Grid.Row="3" Grid.Column="0"  Content="后台线程" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="120" Height="30" Click="btn4_Click" />
-            <Button x:Name="btn5" Grid.Row="4" Grid.Column="0"  Content="Join线程" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="120" Height="30" Click="btn5_Click" />
-            <Button x:Name="btn6" Grid.Row="5" Grid.Column="0"  Content="线程同步" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="120" Height="30" Click="btnSync_Click" />
-            <Button x:Name="btn7" Grid.Row="6" Grid.Column="0"  Content="线程异步" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="120" Height="30" Click="btnAsync_Click" />
-            <Button x:Name="btn8" Grid.Row="7" Grid.Column="0"  Content="线程异步回调" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="120" Height="30" Click="btnAsyncAdvanced_Click" />
-            <Button x:Name="btn9" Grid.Row="8" Grid.Column="0"  Content="AutoResetEvent" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="120" Height="30" Click="BtbAutoResetEvent" />
-            <Button x:Name="btn10" Grid.Row="9" Grid.Column="0"  Content="MaualResetEvent" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="120" Height="30" Click="BtbManualResetEvent" />
-            <Button x:Name="btn11" Grid.Row="10" Grid.Column="0"  Content="生产者消费者" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="120" Height="30" Click="produceConsume" />
+            <Button x:Name="btn1" Grid.Row="0" Grid.Column="0"  Content="当前线程属性" Click="btn1_Click" Style="{StaticResource right_button_style}" />
+            <Button x:Name="btn2" Grid.Row="1" Grid.Column="0"  Content="创建线程" Click="btn2_Click" Style="{StaticResource right_button_style}" />
+            <Button x:Name="btn3" Grid.Row="2" Grid.Column="0"  Content="前台线程先结束" Click="btn3_Click" Style="{StaticResource right_button_style}" />
+            <Button x:Name="btn4" Grid.Row="3" Grid.Column="0"  Content="后台线程改为前台线程" Click="btn4_Click" Style="{StaticResource right_button_style}" />
+            <Button x:Name="btn5" Grid.Row="4" Grid.Column="0"  Content="线程方法:Join" Click="btn5_Click" Style="{StaticResource right_button_style}" />
+            <Button x:Name="btn6" Grid.Row="5" Grid.Column="0"  Content="线程同步" Click="btnSync_Click" Style="{StaticResource right_button_style}" />
+            <Button x:Name="btn7" Grid.Row="6" Grid.Column="0"  Content="线程异步" Click="btnAsync_Click" Style="{StaticResource right_button_style}" />
+            <Button x:Name="btn8" Grid.Row="7" Grid.Column="0"  Content="线程异步回调" Click="btnAsyncAdvanced_Click" Style="{StaticResource right_button_style}" />
+            <Button x:Name="btn9" Grid.Row="8" Grid.Column="0"  Content="AutoResetEvent" Click="BtbAutoResetEvent" Style="{StaticResource right_button_style}" />
+            <Button x:Name="btn10" Grid.Row="9" Grid.Column="0"  Content="MaualResetEvent WaitOne" Click="BtbManualResetEvent_WaitOne" Style="{StaticResource right_button_style}" />
+            <Button x:Name="btn11" Grid.Row="10" Grid.Column="0"  Content="MaualResetEvent WaitAny" Click="BtbManualResetEvent_WaitAny" Style="{StaticResource right_button_style}" />
+            <Button x:Name="btn12" Grid.Row="11" Grid.Column="0"  Content="生产者消费者" Click="produceConsume" Style="{StaticResource right_button_style}" />
             
         </Grid>
 

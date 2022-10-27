@@ -43,7 +43,6 @@ namespace WPFTest.UI.Chapter2
         public static IntPtr text_whandle;
 
 
-
         #region 定义常量消息值
         public const int TRAN_FINISHED = 0x500;
         public const int WM_COPYDATA = 0x004A;
@@ -76,15 +75,18 @@ namespace WPFTest.UI.Chapter2
 
         public C2_SY2()
         {
+            m_objectCur = null;
+
             InitializeComponent();
 
         }
 
         public C2_SY2(MainWindow parent)
         {
+            m_objectCur = null;
+
             InitializeComponent();
             this.parentWindow = parent;
-
         }
 
         //页面加载时，添加消息处理钩子函数
@@ -95,7 +97,6 @@ namespace WPFTest.UI.Chapter2
             hWndSource = HwndSource.FromHwnd(wih.Handle);
             //添加处理程序 
             hWndSource.AddHook(MainWindowProc);
-
         }
 
         //钩子函数，处理所收到的消息
@@ -164,13 +165,14 @@ namespace WPFTest.UI.Chapter2
             {
                 showComment((string)comment);
             }
-
         }
-        
 
         private void runCMD(object sender, RoutedEventArgs e)
         {
             clearComments();
+
+            btnClick_base(sender, e);
+
             string strCmd = "ping www.whu.edu.cn -n 20";
             if (!MyStringUtil.isEmpty(textBox1.Text))
                 strCmd = "ping " + textBox1.Text.Trim() + " -n 20";
@@ -269,7 +271,10 @@ namespace WPFTest.UI.Chapter2
 
         private void closeCMD(object sender, RoutedEventArgs e)
         {
+            btnClick_base(sender, e);
+
             cmdP.Close();
         }
+
     }
 }

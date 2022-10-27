@@ -9,6 +9,18 @@
       d:DesignHeight="300" d:DesignWidth="160"
       Title="MenuPageChapter1" Loaded="ChildPage_Loaded">
 
+    <Page.Resources>
+        <SolidColorBrush x:Key="submenu_foreground" Color="blue"/>
+        <SolidColorBrush x:Key="submenu_foreground_hot" Color="red"/>
+
+        <Style 
+            x:Key="color_button_style" 
+            BasedOn="{StaticResource color_button}"
+            TargetType="Button" >
+            <EventSetter Event="Button.MouseLeftButtonUp" Handler="btnLeftButtonUp"/>
+        </Style>
+    </Page.Resources>
+
     <Grid Name="grid" Margin="0">
         <Grid.RowDefinitions>
             <RowDefinition Height="40"></RowDefinition>
@@ -20,8 +32,8 @@
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Button x:Name="jz" Grid.Row="0"  Content="实验1-汉字识别与转换" HorizontalAlignment="Center"  VerticalAlignment="Center" HorizontalContentAlignment="Left" Width="160" Height="30" Click="sy1_Click" />
-        <Button x:Name="jz_Copy" Grid.Row="1"  Content="实验2-文件合并"  HorizontalAlignment="Center"  VerticalAlignment="Center" HorizontalContentAlignment="Left"  Width="160" Height="30" Click="sy2_Click"  />
+        <Button x:Name="jz" Grid.Row="0"  Content="实验1-汉字识别与转换"  Click="sy1_Click"  Style="{StaticResource color_button_style}" />
+        <Button x:Name="jz_Copy" Grid.Row="1"  Content="实验2-文件合并"  Click="sy2_Click"  Style="{StaticResource color_button_style}" />
 
     </Grid>
 </base:ChildPage>

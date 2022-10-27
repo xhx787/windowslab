@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -13,13 +12,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
 using System.IO;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Windows.Interop;
 using Utils;
 using System.Threading;
+using System.Threading.Tasks;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace WPFTest.UI.Chapter3
 {
@@ -28,25 +28,24 @@ namespace WPFTest.UI.Chapter3
     /// </summary>
     public partial class C3_SY1 : ChildPage
     {
-
-       
         public C3_SY1()
         {
-            InitializeComponent();
-           
+            m_objectCur = null;
+
+            InitializeComponent();           
         }
 
         public C3_SY1(MainWindow parent)
         {
+            m_objectCur = null;
+
             InitializeComponent();
             this.parentWindow = parent;
-
         }
 
         private void ChildPage_Loaded(object sender, RoutedEventArgs e)
         {
         }
-
 
         private void clearComments()
         {
@@ -63,9 +62,6 @@ namespace WPFTest.UI.Chapter3
 
             listBox1.Items.Add(comment);
             //textBox2.Text = comment;
-
-            
-
         }
 
         //定义回调
@@ -84,14 +80,12 @@ namespace WPFTest.UI.Chapter3
             {
                 showComment(comment);
             }
-
         }
 
         //定义回调
         private delegate void setTextValueCallBack(String comment);
         //声明回调
         private setTextValueCallBack setCallBack;
-
 
         private void btn1_Click(object sender, RoutedEventArgs e)
         {
@@ -100,15 +94,17 @@ namespace WPFTest.UI.Chapter3
             //获取正在运行的线程
             Thread thread = Thread.CurrentThread;
             //设置线程的名字
-            thread.Name = "主线程";
+            if (thread.Name != null) thread.Name = "主线程";
             //获取当前线程的唯一标识符
             int id = thread.ManagedThreadId;
             //获取当前线程的状态
             System.Threading.ThreadState state = thread.ThreadState;
             //获取当前线程的优先级
             ThreadPriority priority = thread.Priority;
-            string strMsg = string.Format("Thread ID:{0}\n" + "Thread Name:{1}\n" +
-                "Thread State:{2}\n" + "Thread Priority:{3}\n", id, thread.Name,
+            string strMsg = string.Format("Thread ID:{0}\n" + 
+                "Thread Name:{1}\n" +
+                "Thread State:{2}\n" + 
+                "Thread Priority:{3}\n", id, thread.Name,
                 state, priority);
 
             Console.WriteLine(strMsg);
@@ -116,6 +112,7 @@ namespace WPFTest.UI.Chapter3
 
             showComment(strMsg);
 
+            btnClick_base(sender, e);
         }
 
         /// <summary>
@@ -154,10 +151,11 @@ namespace WPFTest.UI.Chapter3
             update((string)obj);
         }
 
-
         private void btn2_Click(object sender, RoutedEventArgs e)
         {
             clearComments();
+
+            btnClick_base(sender, e);
 
             //实例化回调
             setCallBack = new setTextValueCallBack(showComment);
@@ -181,7 +179,6 @@ namespace WPFTest.UI.Chapter3
             Thread thread4 = new Thread(() => update("我是通过Lambda表达式创建的委托"));
             thread4.Start();
 
-
             //通过ParameterizedThreadStart创建线程
             Thread thread5 = new Thread(new ParameterizedThreadStart(Thread5));
             //给方法传值
@@ -189,7 +186,6 @@ namespace WPFTest.UI.Chapter3
             
             //Console.ReadKey();
         }
-
 
         class BackGroundTest
         {
@@ -221,13 +217,14 @@ namespace WPFTest.UI.Chapter3
         {
             clearComments();
 
+            btnClick_base(sender, e);
+
             //演示前台、后台线程
             BackGroundTest background = new BackGroundTest(this,10);
             //创建前台线程
             Thread fThread = new Thread(new ThreadStart(background.RunLoop));
             //给线程命名
             fThread.Name = "前台线程";
-
 
             BackGroundTest background1 = new BackGroundTest(this,20);
             //创建后台线程
@@ -239,12 +236,13 @@ namespace WPFTest.UI.Chapter3
             //启动线程
             fThread.Start();
             bThread.Start();
-
         }
 
         private void btn4_Click(object sender, RoutedEventArgs e)
         {
             clearComments();
+
+            btnClick_base(sender, e);
 
             //演示前台、后台线程
             BackGroundTest background = new BackGroundTest(this, 10);
@@ -253,11 +251,10 @@ namespace WPFTest.UI.Chapter3
             //给线程命名
             fThread.Name = "前台线程";
 
-
             BackGroundTest background1 = new BackGroundTest(this, 20);
             //创建后台线程
             Thread bThread = new Thread(new ThreadStart(background1.RunLoop));
-            bThread.Name = "后台线程";
+            bThread.Name = "后台线程改为前台线程";
             //设置为后台线程
             //bThread.IsBackground = true;
 
@@ -281,10 +278,11 @@ namespace WPFTest.UI.Chapter3
             update("所有的线程结束");
         }
 
-
         private void btn5_Click(object sender, RoutedEventArgs e)
         {
             clearComments();
+
+            btnClick_base(sender, e);
 
             Thread thread1 = new Thread(threadMethod6);
             Thread thread2 = new Thread(threadMethod6);
@@ -298,10 +296,8 @@ namespace WPFTest.UI.Chapter3
             joinThread.Start(new Thread[] { thread1, thread2, thread3 });
         }
 
-
         private void DoSomethingLong(string name)
         {
-
             Console.WriteLine($"****************DoSomethingLong {name} Start {Thread.CurrentThread.ManagedThreadId.ToString("00")} {DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff")}***************");
             update($"****************DoSomethingLong " + name + " Start " + Thread.CurrentThread.ManagedThreadId.ToString("00") + " " +  DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff") + "***************");
             long lResult = 0;
@@ -311,13 +307,14 @@ namespace WPFTest.UI.Chapter3
             }
             Console.WriteLine($"****************DoSomethingLong {name}   End {Thread.CurrentThread.ManagedThreadId.ToString("00")} {DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff")} {lResult}***************");
             update($"****************DoSomethingLong " + name + " End " + Thread.CurrentThread.ManagedThreadId.ToString("00") + "  " + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff") + " " + lResult + "***************");
-
         }
 
         //线程同步方法
         private void btnSync_Click(object sender, RoutedEventArgs e)
         {
             clearComments();
+
+            btnClick_base(sender, e);
 
             Console.WriteLine($"****************btnSync_Click Start {Thread.CurrentThread.ManagedThreadId.ToString("00")} {DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff")}***************");
             update($"****************btnSync_Click Start " + Thread.CurrentThread.ManagedThreadId.ToString("00")  +  " " + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff") + "***************");
@@ -331,14 +328,14 @@ namespace WPFTest.UI.Chapter3
             }
             Console.WriteLine($"****************btnSync_Click End {Thread.CurrentThread.ManagedThreadId.ToString("00")} {DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff")}***************");
             update($"****************btnSync_Click End " + Thread.CurrentThread.ManagedThreadId.ToString("00") + " " + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff") + "***************");
-
-
         }
 
         //线程异步方法
         private void btnAsync_Click(object sender, RoutedEventArgs e)
         {
             clearComments();
+
+            btnClick_base(sender, e);
 
             Console.WriteLine($"***************btnAsync_Click Start {Thread.CurrentThread.ManagedThreadId}");
             update($"***************btnAsync_Click Start " + Thread.CurrentThread.ManagedThreadId);
@@ -354,17 +351,19 @@ namespace WPFTest.UI.Chapter3
             {
                 string name = string.Format($"btnSync_Click_{i}");
                 action.BeginInvoke(name, null, null);
+//                action.Invoke(name);
             }
 
             Console.WriteLine($"***************btnAsync_Click End    {Thread.CurrentThread.ManagedThreadId}");
             update($"***************btnAsync_Click End " + Thread.CurrentThread.ManagedThreadId);
-
         }
 
         //线程异步的回调方法，实现同步
         private void btnAsyncAdvanced_Click(object sender, RoutedEventArgs e)
         {
             clearComments();
+
+            btnClick_base(sender, e);
 
             Console.WriteLine($"***************btnAsyncAdvanced_Click Start {Thread.CurrentThread.ManagedThreadId}");
             update($"***************btnAsyncAdvanced_Click Start " + Thread.CurrentThread.ManagedThreadId);
@@ -380,8 +379,7 @@ namespace WPFTest.UI.Chapter3
                 update($"到这里计算已经完成了。" + Thread.CurrentThread.ManagedThreadId.ToString("00") + "。");
             };
 
-
-
+            // 异步调用回调
             for (int i = 0; i < 5; i++)
             {
                 string name = string.Format($"btnSync_Click_{i}");
@@ -392,7 +390,6 @@ namespace WPFTest.UI.Chapter3
             update($"***************btnAsync_Click End " + Thread.CurrentThread.ManagedThreadId);
 
         }
-
 
         AutoResetEvent event1 = new AutoResetEvent(false);
         AutoResetEvent event2 = new AutoResetEvent(false);
@@ -420,13 +417,10 @@ namespace WPFTest.UI.Chapter3
             update("thread3 end");
             event3.Set();
         }
-        private void BtbAutoResetEvent(object sender, RoutedEventArgs e)
-        {
-            clearComments();
 
-            Thread vThread1 = new Thread(new ThreadStart(Method1));
-            Thread vThread2 = new Thread(new ThreadStart(Method2));
-            Thread vThread3 = new Thread(new ThreadStart(Method3));
+        public void Method_auto(object obj)
+        {
+            C3_SY1 parent = obj as C3_SY1;
 
             AutoResetEvent[] vEventInProgress = new AutoResetEvent[3]
             {
@@ -435,52 +429,57 @@ namespace WPFTest.UI.Chapter3
                 event3
             };
 
+            int index = WaitHandle.WaitAny(vEventInProgress, 8000);
+            parent.update("AutoResetEvent triggered WaitAny. Wait thread end, the index of the trigger thread is " + index);
+        }
+
+        private void BtbAutoResetEvent(object sender, RoutedEventArgs e)
+        {
+            clearComments();
+
+            btnClick_base(sender, e);
+
+            Thread vThread1 = new Thread(new ThreadStart(Method1));
+            Thread vThread2 = new Thread(new ThreadStart(Method2));
+            Thread vThread3 = new Thread(new ThreadStart(Method3));
+            Thread cThread = new Thread(new
+                ParameterizedThreadStart(Method_auto));
+
+            cThread.Start(this);
             vThread1.Start();
             vThread2.Start();
             vThread3.Start();
-
-            WaitHandle.WaitAny(vEventInProgress, 8000);
-            update("current thread end;");
-
-            if (vThread1 != null)
-                vThread1.Abort();
-            if (vThread2 != null)
-                vThread2.Abort();
-            if (vThread3 != null)
-                vThread3.Abort();
         }
-
 
         ManualResetEvent event4 = new ManualResetEvent(false);
         ManualResetEvent event5 = new ManualResetEvent(false);
         ManualResetEvent event6 = new ManualResetEvent(false);
         public void Method4()
         {
-            //event4.Reset();
+            event4.Reset();
             update("thread4 begin");
-            //Thread.Sleep(1000);
+            Thread.Sleep(1000);
             update("thread4 end");
             event4.Set();
         }
 
         public void Method5()
         {
-            //event5.Reset();
+            event5.Reset();
             update("thread5 begin");
-            //Thread.Sleep(2000);
+            Thread.Sleep(2000);
             update("thread5 end");
             event5.Set();
         }
 
         public void Method6()
         {
-            //event6.Reset();
+            event6.Reset();
             update("thread6 begin");
-            //Thread.Sleep(3000);
+            Thread.Sleep(3000);
             update("thread6 end");
             event6.Set();
         }
-
 
         private void waitOneTest()
         {
@@ -488,28 +487,66 @@ namespace WPFTest.UI.Chapter3
             mansig = new ManualResetEvent(true);
 
             bool state = mansig.WaitOne(9000, true);
-            Console.WriteLine("ManualResetEvent After WaitOne" + state);
+            Console.WriteLine("1 ManualResetEvent After WaitOne " + state);
             if (!state)
-                update("ManualResetEvent After WaitOne " + state);
+                update("1 ManualResetEvent After WaitOne " + state);
 
             mansig.Reset();
             if (!mansig.WaitOne(9000, true)) { 
-                Console.WriteLine("ManualResetEvent After WaitOne" + state);
-                update("ManualResetEvent After WaitOne " + state);
+                Console.WriteLine("2 ManualResetEvent After WaitOne " + state);
+                update("2 ManualResetEvent After WaitOne " + state);
             }
 
             mansig.Set();
             state = mansig.WaitOne(9000, true);
-            Console.WriteLine("ManualResetEvent After WaitOne" + state);
+            Console.WriteLine("3 ManualResetEvent After WaitOne " + state);
             if (!state)
-                update("ManualResetEvent After WaitOne " + state);
+                update("3 ManualResetEvent After WaitOne " + state);
         }
 
-        private void waitAnyTest()
+        static ManualResetEvent manualResetEvent = new ManualResetEvent(false);
+
+        private void waitOneTest_new()
         {
-            Thread vThread1 = new Thread(new ThreadStart(Method4));
-            Thread vThread2 = new Thread(new ThreadStart(Method5));
-            Thread vThread3 = new Thread(new ThreadStart(Method6));
+            Task task = Task.Factory.StartNew(() =>
+            {
+                GetDataFromServer(1, this);
+            });
+
+            Task.Factory.StartNew(() =>
+            {
+                GetDataFromServer(2, this);
+            });
+
+
+            //Send first signal to get first set of data from server 1 and server 2
+            manualResetEvent.Set();
+            manualResetEvent.Reset();
+
+            Thread.Sleep(TimeSpan.FromSeconds(2));
+            //Send second signal to get second set of data from server 1 and server 2
+            manualResetEvent.Set();
+//            Console.ReadLine();
+        }
+
+        static void GetDataFromServer(int serverNumber, C3_SY1 parent)
+        {
+            //Calling any webservice to get data
+            Console.WriteLine("I get first data from server" + serverNumber);
+            parent.update("I get first data from server" + serverNumber);
+            manualResetEvent.WaitOne();
+
+            Thread.Sleep(TimeSpan.FromSeconds(2));
+            Console.WriteLine("I get second data from server" + serverNumber);
+            parent.update("I get second data from server" + serverNumber);
+            manualResetEvent.WaitOne();
+            Console.WriteLine("All the data collected from server" + serverNumber);
+            parent.update("All the data collected from server" + serverNumber);
+        }
+
+        public void Method_manual(object obj)
+        {
+            C3_SY1 parent = obj as C3_SY1;
 
             ManualResetEvent[] vEventInProgress = new ManualResetEvent[3]
             {
@@ -518,12 +555,30 @@ namespace WPFTest.UI.Chapter3
                 event6
             };
 
+            int index = WaitHandle.WaitAny(vEventInProgress, 5000);
+            parent.update("ManualResetEvent triggered WaitAny. Wait thread end, the index of the trigger thread is " + index);
+        }
+
+        private void waitAnyTest()
+        {
+            Thread vThread1 = new Thread(new ThreadStart(Method4));
+            Thread vThread2 = new Thread(new ThreadStart(Method5));
+            Thread vThread3 = new Thread(new ThreadStart(Method6));
+            Thread cThread = new Thread(new 
+                ParameterizedThreadStart(Method_manual));
+
+            cThread.Start(this);
             vThread1.Start();
             vThread2.Start();
             vThread3.Start();
 
-            int index = WaitHandle.WaitAny(vEventInProgress, 5000);
-            update("current thread end;");
+            int id = vThread1.ManagedThreadId;
+            update("thread 1 id=" + id);
+            id = vThread2.ManagedThreadId;
+            update("thread 2 id=" + id);
+            id = vThread3.ManagedThreadId;
+            update("thread 3 id=" + id);
+
             /*
             while (index != 0)
             {
@@ -544,16 +599,30 @@ namespace WPFTest.UI.Chapter3
             */
         }
 
-        private void BtbManualResetEvent(object sender, RoutedEventArgs e)
+        private void BtbManualResetEvent_WaitOne(object sender, RoutedEventArgs e)
         {
             clearComments();
 
-            waitAnyTest();
+            btnClick_base(sender, e);
 
+            waitOneTest_new();
+        }
+
+        private void BtbManualResetEvent_WaitAny(object sender, RoutedEventArgs e)
+        {
+            clearComments();
+
+            btnClick_base(sender, e);
+
+            waitAnyTest();
         }
 
         private void produceConsume(object sender, RoutedEventArgs e)
         {
+            clearComments();
+
+            btnClick_base(sender, e);
+
             ProducerConsumer pc = new ProducerConsumer(this);
             ProducerConsumer.SharedBuffer = 20;
             ProducerConsumer.mut = new Mutex(false, "Tr");
@@ -565,7 +634,6 @@ namespace WPFTest.UI.Chapter3
             ProducerConsumer.threadVec[0].Join();
             ProducerConsumer.threadVec[1].Join();
         }
-
 
         public class ProducerConsumer
         {
@@ -616,7 +684,6 @@ namespace WPFTest.UI.Chapter3
                 }
             }
         }
-        
-        
+
     }
 }

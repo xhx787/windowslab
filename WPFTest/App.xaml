@@ -4,7 +4,13 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
 
-           <Style TargetType="DataGrid">
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="UI/Theme/style.xaml">
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+
+        <Style TargetType="DataGrid">
                 <!--网格线颜色-->
                 <Setter Property="CanUserResizeColumns" Value="false"/>
                 <Setter Property="Background" Value="#E6DBBB" />
@@ -106,5 +112,6 @@
                 </Style.Triggers>
             </Style>
 
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

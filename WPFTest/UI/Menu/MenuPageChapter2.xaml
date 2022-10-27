@@ -9,6 +9,19 @@
       d:DesignHeight="300" d:DesignWidth="160"
       Title="MenuPageChapter2" Loaded="ChildPage_Loaded">
 
+    <Page.Resources>
+        <SolidColorBrush x:Key="menu_foreground" Color="blue"/>
+        <SolidColorBrush x:Key="menu_foreground_hot" Color="Red"/>
+
+        <Style 
+            x:Key="color_button_style" 
+            BasedOn="{StaticResource color_button}"
+            TargetType="Button" >
+            <!--<EventSetter Event="Button.MouseLeftButtonUp" Handler="btnLeftButtonUp"/>-->
+        </Style>
+    </Page.Resources>
+
+
     <Grid Name="grid" Margin="0">
         <Grid.RowDefinitions>
             <RowDefinition Height="40"></RowDefinition>
@@ -19,8 +32,8 @@
             <RowDefinition Height="40"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-        <Button x:Name="sh2" Grid.Row="0"  Content="实验1-同步调用进程ping"  HorizontalAlignment="Center"  VerticalAlignment="Center" HorizontalContentAlignment="Left"  Width="160" Height="30" Click="sy1_Click"  />
-        <Button x:Name="sh1" Grid.Row="1"  Content="实验2-异步调用进程ping" HorizontalAlignment="Center"  VerticalAlignment="Center" HorizontalContentAlignment="Left" Width="160" Height="30" Click="sy2_Click" />
-        <Button x:Name="sh3" Grid.Row="2"  Content="实验3-异步调用进程getmac"  HorizontalAlignment="Center"  VerticalAlignment="Center" HorizontalContentAlignment="Left"  Width="160" Height="30" Click="sy3_Click"  />
+        <Button x:Name="sh1" Grid.Row="0"  Content="实验1-同步调用进程ping"   Click="sy1_Click"  Style="{StaticResource color_button_style}" />
+        <Button x:Name="sh2" Grid.Row="1"  Content="实验2-异步调用进程ping"   Click="sy2_Click"  Style="{StaticResource color_button_style}" />
+        <Button x:Name="sh3" Grid.Row="2"  Content="实验3-异步调用进程getmac" Click="sy3_Click"  Style="{StaticResource color_button_style}" />
     </Grid>
 </base:ChildPage>

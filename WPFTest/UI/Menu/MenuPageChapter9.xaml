@@ -9,6 +9,18 @@
       d:DesignHeight="300" d:DesignWidth="160"
 	Title="MenuPageFgbz" Loaded="ChildPage_Loaded_1">
 
+    <Page.Resources>
+        <SolidColorBrush x:Key="submenu_foreground" Color="blue"/>
+        <SolidColorBrush x:Key="submenu_foreground_hot" Color="red"/>
+
+        <Style 
+            x:Key="color_button_style" 
+            BasedOn="{StaticResource color_button}"
+            TargetType="Button" >
+            <EventSetter Event="Button.MouseLeftButtonUp" Handler="btnLeftButtonUp"/>
+        </Style>
+    </Page.Resources>
+
     <Grid Name="grid" Margin="0">
         <Grid.RowDefinitions>
             <RowDefinition Height="40"></RowDefinition>
@@ -20,9 +32,9 @@
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Button x:Name="excel" Grid.Row="0"   Content="实验1：excel数据管理" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="160" Height="30" Click="excel_Click_1"/>
-        <Button x:Name="sqlite" Grid.Row="1"  Content="实验2：sqlite数据管理" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="160" Height="30" Click="file_Click_1" />
-        <Button x:Name="ado" Grid.Row="2"     Content="实验3：ADO.NET实验" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="160" Height="30" Click="ado_Click_1"/>
+        <Button x:Name="excel" Grid.Row="0"   Content="实验1：excel数据管理" Click="excel_Click_1" Style="{StaticResource color_button_style}" />
+        <Button x:Name="sqlite" Grid.Row="1"  Content="实验2：sqlite数据管理" Click="file_Click_1" Style="{StaticResource color_button_style}" />
+        <Button x:Name="ado" Grid.Row="2"     Content="实验3：ADO.NET实验" Click="ado_Click_1" Style="{StaticResource color_button_style}" />
            
     </Grid>
 </base:ChildPage>

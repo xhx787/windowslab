@@ -21,6 +21,8 @@ namespace WPFTest.UI.Menu
     {
         public MenuPageChapter8()
         {
+            m_objectCur = null;
+
             InitializeComponent();
         }
 
@@ -39,6 +41,15 @@ namespace WPFTest.UI.Menu
             FireNextEvent("chapter8_sy2");
         }
 
-      
+        private void btnLeftButtonUp(object sender, MouseEventArgs e)
+        {
+            if (m_objectCur != null)
+            {
+                ((Button)m_objectCur).Foreground = (SolidColorBrush)this.Resources["submenu_foreground"];
+            }
+            ((Button)sender).Foreground = (SolidColorBrush)this.Resources["submenu_foreground_hot"];
+
+            m_objectCur = (Button)sender;
+        }
     }
 }

@@ -30,19 +30,19 @@ namespace WPFTest.UI.Chapter3
     /// </summary>
     public partial class C3_SY2 : ChildPage
     {
-
-       
         public C3_SY2()
         {
+            m_objectCur = null;
+
             InitializeComponent();
-           
         }
 
         public C3_SY2(MainWindow parent)
         {
+            m_objectCur = null;
+
             InitializeComponent();
             this.parentWindow = parent;
-
         }
 
         private void ChildPage_Loaded(object sender, RoutedEventArgs e)
@@ -221,6 +221,8 @@ namespace WPFTest.UI.Chapter3
             {
                 w_dir = dialog.SelectedPath;
             }
+
+            btnClick_base(sender, e);
         }
 
         //启动文件目录监视线程
@@ -230,12 +232,16 @@ namespace WPFTest.UI.Chapter3
             Thread workThread = new Thread(new ThreadStart(WatchDir));
             workThread.IsBackground = true;
             workThread.Start();
+
+            btnClick_base(sender, e);
         }
 
         //终止文件目录监视线程
         private void btn3_Click(object sender, RoutedEventArgs e)
         {
             e_wdirth_end.Set();
+
+            btnClick_base(sender, e);
         }
 
         private void btn4_Click(object sender, RoutedEventArgs e)
@@ -251,16 +257,22 @@ namespace WPFTest.UI.Chapter3
             Thread workThread = new Thread(workStart);
             workThread.IsBackground = true;
             workThread.Start();
+
+            btnClick_base(sender, e);
         }
 
         private void btn5_Click(object sender, RoutedEventArgs e)
         {
             capture_this_one_e.Set();
+
+            btnClick_base(sender, e);
         }
 
         private void btn6_Click(object sender, RoutedEventArgs e)
         {
             capture_terminate_e.Set();
+
+            btnClick_base(sender, e);
         }
     }
 }

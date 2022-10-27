@@ -21,17 +21,15 @@ namespace WPFTest.UI.Menu
     {
         public MenuPageChapter1()
         {
+            m_objectCur = null;
+
             InitializeComponent();
         }
-
-      
 
         private void sy1_Click(object sender, RoutedEventArgs e)
         {
             FireNextEvent("chapter1_sy1");
         }
-
-
 
         private void sy2_Click(object sender, RoutedEventArgs e)
         {
@@ -41,6 +39,17 @@ namespace WPFTest.UI.Menu
         private void ChildPage_Loaded(object sender, RoutedEventArgs e)
         {
             FireNextEvent("chapter1_sy1");
+        }
+
+        private void btnLeftButtonUp(object sender, MouseEventArgs e)
+        {
+            if (m_objectCur != null)
+            {
+                ((Button)m_objectCur).Foreground = (SolidColorBrush)this.Resources["submenu_foreground"];
+            }
+            ((Button)sender).Foreground = (SolidColorBrush)this.Resources["submenu_foreground_hot"];
+
+            m_objectCur = (Button)sender;
         }
     }
 }

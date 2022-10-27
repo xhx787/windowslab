@@ -371,23 +371,23 @@ namespace WPFTest
             MenuPageChapter9 page = new MenuPageChapter9();
             page.NextEvent += ((object arg) =>
             {
-                if (arg.Equals("chapter9_sy1"))
-                {
-                    contentFrame.Content = createPageChapter9_sy1();
-                }
-                else if (arg.Equals("chapter9_sy2"))
-                {
-                    contentFrame.Content = createPageChapter9_sy2();
-                }
-                else if (arg.Equals("chapter9_sy3"))
-                {
-                    contentFrame.Content = createPageChapter9_sy3();
-                }
-                else
-                {
+                //if (arg.Equals("chapter9_sy1"))
+                //{
+                //    contentFrame.Content = createPageChapter9_sy1();
+                //}
+                //else if (arg.Equals("chapter9_sy2"))
+                //{
+                //    contentFrame.Content = createPageChapter9_sy2();
+                //}
+                //else if (arg.Equals("chapter9_sy3"))
+                //{
+                //    contentFrame.Content = createPageChapter9_sy3();
+                //}
+                //else
+                //{
                     MessageBox.Show("正在开发中......");
-                    contentFrame.Content = createPageChapter9_sy1();
-                }
+ //                   contentFrame.Content = createPageChapter9_sy1();
+                //}
 
             });
 

@@ -9,6 +9,11 @@
        d:DesignHeight="600" d:DesignWidth="920"
       Title="实验：进程异步-获取MAC地址" Loaded="ChildPage_Loaded">
 
+    <Page.Resources>
+        <SolidColorBrush x:Key="menu_foreground" Color="blue"/>
+        <SolidColorBrush x:Key="menu_foreground_hot" Color="Red"/>
+    </Page.Resources>
+
     <Grid HorizontalAlignment="Stretch"  Margin="0" VerticalAlignment="Stretch">
         
         <Grid.ColumnDefinitions>
@@ -40,11 +45,11 @@
                 <RowDefinition Height="*"></RowDefinition>
             </Grid.RowDefinitions>
 
-            <Button x:Name="btn1" Grid.Row="3" Grid.Column="0"  Content="runCMD-getmac" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="150" Height="30" Click="runCMD" />
+            <Button x:Name="btn1" Grid.Row="3" Grid.Column="0"  Content="runCMD-getmac" Click="runCMD" Style="{StaticResource color_button}" />
             <!--
             <Button x:Name="btn2" Grid.Row="3" Grid.Column="0"  Content="refresh" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="100" Height="30" />
             -->
-            <Button x:Name="btn3" Grid.Row="4" Grid.Column="0"  Content="closeCMD" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="150" Height="30" Click="closeCMD" />
+            <Button x:Name="btn3" Grid.Row="4" Grid.Column="0"  Content="closeCMD" Click="closeCMD" Style="{StaticResource color_button}" />
 
         </Grid>
 

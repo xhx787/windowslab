@@ -28,7 +28,6 @@ namespace WPFTest.UI.Chapter2
     /// </summary>
     public partial class C2_SY3 : ChildPage
     {
-
         public static Process cmdP;
         public static StreamWriter cmdStreamInput;
         private static StringBuilder cmdOutput = null;
@@ -66,12 +65,15 @@ namespace WPFTest.UI.Chapter2
 
         public C2_SY3()
         {
-            InitializeComponent();
+            m_objectCur = null;
 
+            InitializeComponent();
         }
 
         public C2_SY3(MainWindow parent)
         {
+            m_objectCur = null;
+
             InitializeComponent();
             this.parentWindow = parent;
 
@@ -138,10 +140,12 @@ namespace WPFTest.UI.Chapter2
             //textBox2.Text = comment;
         }
 
-
         private void runCMD(object sender, RoutedEventArgs e)
         {
             clearComments();
+
+            btnClick_base(sender, e);
+
             string strCmd = "getmac";
            
             cmdOutput = new StringBuilder("");
@@ -222,7 +226,9 @@ namespace WPFTest.UI.Chapter2
 
         private void closeCMD(object sender, RoutedEventArgs e)
         {
+            btnClick_base(sender, e);
             cmdP.Close();
         }
+
     }
 }
