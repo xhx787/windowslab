@@ -61,12 +61,24 @@ namespace WPFTest.UI.Chapter3
         {
             switch (msg)
             {
-                
                 case WATCH_FILE:
                     {
                         showComment(strfileinfo);
                         break;
                     }
+
+                case CAPTURE_FILE:
+                    {
+                        showComment(strfileCapture);
+                        break;
+                    }
+
+                case CAPTURE_FOLDER:
+                    {
+                        showPath(strfolderCapture);
+                        break;
+                    }
+
                 default:
                     {
                         break;
@@ -78,7 +90,7 @@ namespace WPFTest.UI.Chapter3
         private void clearComments()
         {
             listBox1.Items.Clear();
-            //textBox2.Text = "";
+ //           textBox2.Text = "";
         }
 
         private void showComment(String comment)
@@ -89,10 +101,17 @@ namespace WPFTest.UI.Chapter3
             }
 
             listBox1.Items.Add(comment);
-            //textBox2.Text = comment;
+ //           textBox2.Text = comment;
+        }
 
-            
+        private void showPath(String path)
+        {
+            textBox2.Text = path;
+        }
 
+        private void clearPath()
+        {
+            textBox2.Text = "";
         }
 
         //定义回调
@@ -111,9 +130,7 @@ namespace WPFTest.UI.Chapter3
             {
                 showComment(comment);
             }
-
         }
-
         
         //动态链接库引入
         [DllImport("kernel32.dll")]
@@ -134,23 +151,28 @@ namespace WPFTest.UI.Chapter3
         public static string w_dir;
         public static ManualResetEvent e_wdirth_end;
 
-
-        public const int WATCH_FILE = 0x600;
+        public const int WM_USER = 0x400;
+        public const int WATCH_FILE = WM_USER + 0x200;
+        public const int CAPTURE_FILE = WM_USER + 0x201;
+        public const int CAPTURE_FOLDER = WM_USER + 0x202;
         static ManualResetEvent capture_terminate_e;     //结束抓屏线程事件 
         static ManualResetEvent capture_this_one_e;      //抓屏事件
         public static ManualResetEvent[] me_cap = new ManualResetEvent[2];
-        
-        static void Capture_screen()
+
+        public static string strfileCapture;
+        public static string strfolderCapture;
+        static void Capture_screen(object obj)
         {
+            C3_SY2 parent = obj as C3_SY2;
+
             int s_wid = Screen.PrimaryScreen.Bounds.Width;
             int s_height = Screen.PrimaryScreen.Bounds.Height;
             Bitmap b_1 = new Bitmap(s_wid, s_height);
             Graphics g_ = Graphics.FromImage(b_1);
             String init_dir_fn = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             String dest_fn = null;
+
             //用事件的方法来抓获图片 
-
-
             int index = WaitHandle.WaitAny(me_cap, 500);
             while (index != 0)
             {
@@ -162,9 +184,17 @@ namespace WPFTest.UI.Chapter3
                     {
                         Directory.CreateDirectory(dest_fn);
                     }
+                    strfolderCapture = dest_fn;
+//                    parent.showPath(strfolderCapture);
+                    SendMessage(WINDOW_HANDLER, CAPTURE_FOLDER, 0, 0);
 
-                    dest_fn += GetTickCount().ToString();
-                    dest_fn += "ab.bmp";
+                    string fileName = GetTickCount().ToString();
+                    fileName += "ab.bmp";
+                    dest_fn += fileName;
+
+                    strfileCapture = fileName;
+                    SendMessage(WINDOW_HANDLER, CAPTURE_FILE, 0, 0);
+
                     g_.CopyFromScreen(0, 0, 0, 0, new System.Drawing.Size(s_wid, s_height));
                     b_1.Save(dest_fn, System.Drawing.Imaging.ImageFormat.Bmp);
                     capture_this_one_e.Reset();
@@ -215,6 +245,10 @@ namespace WPFTest.UI.Chapter3
         //选择文件目录进行监视
         private void btn1_Click(object sender, RoutedEventArgs e)
         {
+            clearComments();
+            clearPath();
+            btnClick_base(sender, e);
+
             e_wdirth_end = new ManualResetEvent(false);
             FolderBrowserDialog dialog = new FolderBrowserDialog();
             if (dialog.ShowDialog() == DialogResult.OK)
@@ -222,7 +256,7 @@ namespace WPFTest.UI.Chapter3
                 w_dir = dialog.SelectedPath;
             }
 
-            btnClick_base(sender, e);
+            showPath(w_dir);
         }
 
         //启动文件目录监视线程
@@ -246,6 +280,11 @@ namespace WPFTest.UI.Chapter3
 
         private void btn4_Click(object sender, RoutedEventArgs e)
         {
+            clearComments();
+            clearPath();
+
+            btnClick_base(sender, e);
+
             //初始抓屏终止事件为未结束 
             capture_terminate_e = new ManualResetEvent(false);
             //初始捕获终止状态为未结束 
@@ -253,12 +292,10 @@ namespace WPFTest.UI.Chapter3
             //启动捕捉线程
             me_cap[0] = capture_terminate_e;
             me_cap[1] = capture_this_one_e;
-            ThreadStart workStart = new ThreadStart(Capture_screen);
+            ParameterizedThreadStart workStart = new ParameterizedThreadStart(Capture_screen);
             Thread workThread = new Thread(workStart);
             workThread.IsBackground = true;
-            workThread.Start();
-
-            btnClick_base(sender, e);
+            workThread.Start(this);
         }
 
         private void btn5_Click(object sender, RoutedEventArgs e)
@@ -270,9 +307,10 @@ namespace WPFTest.UI.Chapter3
 
         private void btn6_Click(object sender, RoutedEventArgs e)
         {
-            capture_terminate_e.Set();
-
+            clearComments();
             btnClick_base(sender, e);
+
+            capture_terminate_e.Set();
         }
     }
 }

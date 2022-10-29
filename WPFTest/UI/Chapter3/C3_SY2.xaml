@@ -32,7 +32,15 @@
          <TextBox x:Name="textBox2"  Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" HorizontalAlignment="Stretch"  TextWrapping="Wrap" Text="" VerticalAlignment="Stretch" />
         
         -->
-        <ListBox x:Name="listBox1"  Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" />
+        <Grid Grid.Row="0" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <TextBox x:Name="textBox2"  Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" HorizontalAlignment="Stretch"  TextWrapping="Wrap" Text="" VerticalAlignment="Center" />
+            <ListBox x:Name="listBox1"  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" />
+        </Grid>
 
 
         <Grid Grid.Row="0" Grid.Column="1">
